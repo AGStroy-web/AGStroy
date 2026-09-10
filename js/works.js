@@ -670,7 +670,7 @@ function setupCommon() {
 }
 
 
-// =========================================================
+/// =========================================================
 // WORKS / PORTFOLIO
 // =========================================================
 
@@ -678,42 +678,48 @@ const categories = {
 
   all: {
     folder: "images/vse",
-    titleKey: "allWorks"
+    titleKey: "allWorks",
+    count: 276
   },
 
   furniture: {
     folder: "images/mebel",
-    titleKey: "furnitureWorks"
+    titleKey: "furnitureWorks",
+    count: 0
   },
 
   sinks: {
     folder: "images/rakovina",
-    titleKey: "sinksWorks"
+    titleKey: "sinksWorks",
+    count: 0
   },
 
   plumbing: {
     folder: "images/santeh",
-    titleKey: "plumbingWorks"
+    titleKey: "plumbingWorks",
+    count: 0
   },
 
   other: {
     folder: "images/ostalnoe",
-    titleKey: "otherWorks"
+    titleKey: "otherWorks",
+    count: 200
   }
 
 };
 
 
-// Максимальное количество фото,
-// которое будет проверяться в каждой папке.
+// =========================================================
+// SETTINGS
+// =========================================================
 
-const MAX_PHOTOS_PER_FOLDER = 500;
-
-
-// Количество карточек на одной странице.
-
+// Сколько фотографий показываем на одной странице
 const perPage = 9;
 
+
+// =========================================================
+// ELEMENTS
+// =========================================================
 
 const worksGrid =
   document.querySelector("#worksGrid");
@@ -722,140 +728,92 @@ const pagination =
   document.querySelector("#pagination");
 
 
+// =========================================================
+// STATE
+// =========================================================
+
 let currentPage = 1;
 
 let currentCategory = "all";
 
 
 // =========================================================
-// CHECK IMAGE
+// GET CURRENT CATEGORY
 // =========================================================
 
-function imageExists(src) {
+function getCurrentCategory() {
 
-  return new Promise(resolve => {
-
-    const img = new Image();
-
-    img.onload = () => resolve(true);
-
-    img.onerror = () => resolve(false);
-
-    img.src = src;
-
-  });
+  return categories[currentCategory] || categories.all;
 
 }
 
 
 // =========================================================
-// LOAD CATEGORY
+// GET CURRENT PAGE PHOTOS
 // =========================================================
+//
+// Здесь НЕ загружаются фотографии всей категории.
+//
+// Формируются только 9 путей для текущей страницы.
+//
+// Например, страница 1:
+//
+// photo1.png
+// photo2.png
+// ...
+// photo9.png
+//
+// Страница 2:
+//
+// photo10.png
+// ...
+// photo18.png
 
-async function loadCategory(categoryName) {
+function getPageWorks() {
 
   const category =
-    categories[categoryName];
+    getCurrentCategory();
 
-  if (!category) {
-    return [];
-  }
+  const start =
+    (currentPage - 1) * perPage;
 
+  const end =
+    Math.min(
+      start + perPage,
+      category.count
+    );
 
-  const images = [];
+  const works = [];
 
 
   for (
-    let i = 1;
-    i <= MAX_PHOTOS_PER_FOLDER;
+    let i = start + 1;
+    i <= end;
     i++
   ) {
 
-    const path =
-      `${category.folder}/photo${i}.png`;
+    works.push({
 
-    const exists =
-      await imageExists(path);
+      image:
+        `${category.folder}/photo${i}.png`,
 
+      category:
+        currentCategory,
 
-    if (exists) {
+      number:
+        i
 
-      images.push({
-
-        image: path,
-
-        category: categoryName,
-
-        number: i
-
-      });
-
-    }
+    });
 
   }
 
 
-  return images;
-
+  return works;
 }
 
 
 // =========================================================
-// LOAD ALL CATEGORIES
-// =========================================================
-
-let worksByCategory = {
-
-  all: [],
-  furniture: [],
-  sinks: [],
-  plumbing: [],
-  other: []
-
-};
-
-
-async function loadWorks() {
-
-  const [
-    all,
-    furniture,
-    sinks,
-    plumbing,
-    other
-  ] = await Promise.all([
-
-    loadCategory("all"),
-
-    loadCategory("furniture"),
-
-    loadCategory("sinks"),
-
-    loadCategory("plumbing"),
-
-    loadCategory("other")
-
-  ]);
-
-
-  worksByCategory = {
-
-    all,
-    furniture,
-    sinks,
-    plumbing,
-    other
-
-  };
-
-
-  renderWorks();
-
-}
-
-
-// =========================================================
-// FILTER BUTTONS
+// CREATE FILTERS
 // =========================================================
 
 function createFilters() {
@@ -903,6 +861,7 @@ function createFilters() {
       ${tr().allWorks}
     </button>
 
+
     <button
       type="button"
       class="filter-button ${
@@ -914,6 +873,7 @@ function createFilters() {
     >
       ${tr().furnitureWorks}
     </button>
+
 
     <button
       type="button"
@@ -927,6 +887,7 @@ function createFilters() {
       ${tr().sinksWorks}
     </button>
 
+
     <button
       type="button"
       class="filter-button ${
@@ -938,6 +899,7 @@ function createFilters() {
     >
       ${tr().plumbingWorks}
     </button>
+
 
     <button
       type="button"
@@ -994,20 +956,6 @@ function createFilters() {
 
 
 // =========================================================
-// CURRENT WORKS
-// =========================================================
-
-function getCurrentWorks() {
-
-  return (
-    worksByCategory[currentCategory] ||
-    []
-  );
-
-}
-
-
-// =========================================================
 // RENDER WORKS
 // =========================================================
 
@@ -1018,49 +966,36 @@ function renderWorks() {
   }
 
 
-    const works = getCurrentWorks();
-
-    console.log("Категория:", currentCategory);
-    console.log("Количество фото:", works.length);
-    console.log("Фото на странице:", perPage);
+  const category =
+    getCurrentCategory();
 
 
   const totalPages =
     Math.max(
       1,
       Math.ceil(
-        works.length / perPage
+        category.count / perPage
       )
     );
 
 
+  // Защита от выхода за пределы
   if (currentPage > totalPages) {
     currentPage = totalPages;
   }
 
 
-  const start =
-    (currentPage - 1) * perPage;
-
-
   const pageWorks =
-    works.slice(
-      start,
-      start + perPage
-    );
+    getPageWorks();
 
 
   // =======================================================
-  // PHOTOS
+  // RENDER ONLY CURRENT PAGE
   // =======================================================
 
   worksGrid.innerHTML =
     pageWorks
-      .map((work, index) => {
-
-        const photoNumber =
-          start + index + 1;
-
+      .map(work => {
 
         return `
 
@@ -1072,15 +1007,16 @@ function renderWorks() {
               data-image="${work.image}"
               aria-label="${
                 tr().openPhoto
-              } ${photoNumber}"
+              } ${work.number}"
             >
 
               <img
                 src="${work.image}"
                 alt="AGStroy — ${
                   tr().openPhoto
-                } ${photoNumber}"
+                } ${work.number}"
                 loading="lazy"
+                decoding="async"
               >
 
               <span
@@ -1159,10 +1095,15 @@ function renderWorks() {
       class="pagination__button"
       data-page="${currentPage - 1}"
       aria-label="${tr().prevPage}"
-      ${currentPage === 1 ? "disabled" : ""}
+      ${
+        currentPage === 1
+          ? "disabled"
+          : ""
+      }
     >
       ←
     </button>
+
 
     ${pages
       .map(page => {
@@ -1196,6 +1137,7 @@ function renderWorks() {
       })
       .join("")}
 
+
     <button
       class="pagination__button"
       data-page="${currentPage + 1}"
@@ -1211,6 +1153,10 @@ function renderWorks() {
 
   `;
 
+
+  // =======================================================
+  // PAGINATION EVENTS
+  // =======================================================
 
   pagination
     .querySelectorAll(
@@ -1271,6 +1217,7 @@ function setupLightbox() {
       ×
     </button>
 
+
     <img
       class="image-lightbox__image"
       src=""
@@ -1312,6 +1259,10 @@ function setupLightbox() {
   };
 
 
+  // =======================================================
+  // OPEN IMAGE
+  // =======================================================
+
   worksGrid.addEventListener(
     "click",
     event => {
@@ -1350,20 +1301,22 @@ function setupLightbox() {
   );
 
 
-  closeButton.onclick = close;
+  closeButton.onclick =
+    close;
 
 
-  lightbox.onclick = event => {
+  lightbox.onclick =
+    event => {
 
-    if (
-      event.target === lightbox
-    ) {
+      if (
+        event.target === lightbox
+      ) {
 
-      close();
+        close();
 
-    }
+      }
 
-  };
+    };
 
 
   document.addEventListener(
@@ -1402,7 +1355,7 @@ window.addEventListener(
 
 document.addEventListener(
   "DOMContentLoaded",
-  async () => {
+  () => {
 
     if (!worksGrid) {
       return;
@@ -1413,7 +1366,7 @@ document.addEventListener(
 
     setupLightbox();
 
-    await loadWorks();
+    renderWorks();
 
   }
 );
