@@ -1,785 +1,555 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101114" />
-  <meta
-    name="description"
-    content="AGStroy — строительство, ремонт, мебель и индивидуальные решения."
-  />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101114">
+<meta name="description" content="AGStroy — строительство, ремонт, мебель и индивидуальные решения.">
+<title>AGStroy — строительство и ремонт</title>
 
-  <title>AGStroy — строительство и ремонт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="logo.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/st.css">
+<link rel="icon" href="logo.ico" type="image/x-icon">
 </head>
 
 <body>
-
-  <div class="site-shell">
-
-    <!-- HEADER -->
-    <header class="header" id="top">
-      <div class="container header__inner">
-
-        <a class="brand" href="#top" aria-label="AGStroy">
-          <span class="brand__mark">
-            <img src="logo.png" alt="AGStroy" />
-          </span>
-
-          <span class="brand__text">
-            AG<span>Stroy</span>
-          </span>
-        </a>
-
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Открыть меню"
-          data-i18n-aria-label="menuOpen"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav
-          class="nav"
-          aria-label="Основная навигация"
-          data-i18n-aria-label="mainNav"
-        >
-          <a href="#services" data-i18n="navServices">Услуги</a>
-          <a href="#about" data-i18n="navAbout">О нас</a>
-          <a href="#works" data-i18n="navWorks">Работы</a>
-          <a href="#process" data-i18n="navProcess">Как работаем</a>
-          <a href="#contacts" data-i18n="navContacts">Контакты</a>
-        </nav>
-
-        <a
-          class="header__phone"
-          href="tel:+37477693435"
-        >
-          +374 77 693 435
-        </a>
-
-        <div class="header__controls">
-
-          <div
-            class="language-switcher"
-            role="group"
-            aria-label="Язык сайта"
-          >
-            <button
-              type="button"
-              class="language-button is-active"
-              data-lang="ru"
-              aria-label="Русский"
-            >
-              RU
-            </button>
-
-            <button
-              type="button"
-              class="language-button"
-              data-lang="en"
-              aria-label="English"
-            >
-              EN
-            </button>
-
-            <button
-              type="button"
-              class="language-button"
-              data-lang="hy"
-              aria-label="Հայերեն"
-            >
-              HY
-            </button>
-          </div>
-
-          <button
-            type="button"
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Переключить тему"
-            aria-pressed="false"
-          >
-            <span class="theme-icon theme-icon--sun">☼</span>
-            <span class="theme-icon theme-icon--moon">☾</span>
-          </button>
-
-        </div>
-
-      </div>
-    </header>
-
-
-    <main>
-
-      <!-- HERO -->
-      <section class="hero">
-
-        <div class="container hero__grid">
-
-          <div class="hero__content">
-
-            <p
-              class="eyebrow"
-              data-i18n="heroEyebrow"
-            >
-              РЕМОНТ ДОМОВ ПОД КЛЮЧ
-            </p>
-
-            <h1 data-i18n="heroTitle">
-              Создаём пространство,
-              <span>в котором хочется жить.</span>
-            </h1>
-
-            <p
-              class="hero__lead"
-              data-i18n="heroLead"
-            >
-              AGStroy выполняет комплексный ремонт домов и помещений под ключ —
-              от подготовки и инженерных работ до чистовой отделки и финальных деталей.
-            </p>
-
-            <div class="hero__actions">
-
-              <a
-                class="button button--primary"
-                href="#works"
-              >
-                <span data-i18n="heroWorks">
-                  Смотреть работы
-                </span>
-                <span>↗</span>
-              </a>
-
-              <a
-                class="button button--ghost"
-                href="#contacts"
-                data-i18n="heroContact"
-              >
-                Связаться с нами
-              </a>
-
-            </div>
-
-            <div class="hero__stats">
-
-              <div>
-                <strong>01</strong>
-                <span data-i18n="stat1">
-                  Индивидуальный<br />
-                  подход
-                </span>
-              </div>
-
-              <div>
-                <strong>02</strong>
-                <span data-i18n="stat2">
-                  Продуманные<br />
-                  решения
-                </span>
-              </div>
-
-              <div>
-                <strong>03</strong>
-                <span data-i18n="stat3">
-                  Внимание<br />
-                  к деталям
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="hero__visual"
-            aria-label="Декоративная иллюстрация строительного интерьера"
-            data-i18n-aria-label="visualLabel"
-          >
-
-            <div class="visual-card visual-card--main">
-
-              <div class="visual-card__top">
-                <span>AG / PROJECT</span>
-                <span>2026</span>
-              </div>
-
-              <div class="visual-placeholder">
-                <div class="placeholder-lines"></div>
-                <div class="sink-shape"></div>
-                <div class="cabinet-shape"></div>
-              </div>
-
-              <div class="visual-card__bottom">
-                <span>SPACE / DETAIL</span>
-                <span>01</span>
-              </div>
-
-            </div>
-
-            <div class="floating-chip floating-chip--top">
-              <span class="chip-dot"></span>
-              <span data-i18n="quality">
-                Качество в деталях
-              </span>
-            </div>
-
-            <div class="floating-chip floating-chip--bottom">
-              <span data-i18n="repair">Ремонт</span>
-              <span>+</span>
-              <span data-i18n="furniture">Мебель</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- TICKER -->
-      <section
-        class="ticker"
-        aria-hidden="true"
-      >
-        <div class="ticker__track">
-
-          <span>AGStroy</span>
-          <i>✦</i>
-
-          <span>Construction</span>
-          <i>✦</i>
-
-          <span>Interior</span>
-          <i>✦</i>
-
-          <span>Furniture</span>
-          <i>✦</i>
-
-          <span>Renovation</span>
-          <i>✦</i>
-
-          <span>AGStroy</span>
-          <i>✦</i>
-
-        </div>
-      </section>
-
-
-      <!-- SERVICES -->
-      <section
-        class="section"
-        id="services"
-      >
-
-        <div class="container">
-
-          <div class="section-heading">
-
-            <div>
-
-              <p
-                class="eyebrow"
-                data-i18n="servicesEyebrow"
-              >
-                ЧТО МЫ ДЕЛАЕМ
-              </p>
-
-              <h2 data-i18n="servicesTitle">
-                Комплексный ремонт под ключ
-              </h2>
-
-            </div>
-
-            <p data-i18n="servicesLead">
-              Берём на себя весь комплекс работ, чтобы вам не пришлось
-              координировать разных мастеров и подрядчиков.
-            </p>
-
-          </div>
-
-
-          <div class="services-grid services-grid--single">
-
-            <article class="service-card service-card--large">
-
-              <div class="service-card__number">
-                01
-              </div>
-
-              <div class="service-icon">
-                ↗
-              </div>
-
-              <h3>
-                Ремонт дома под ключ
-              </h3>
-
-              <p>
-                Комплексно выполняем ремонт: подготовительные работы,
-                инженерные коммуникации, выравнивание, отделка,
-                установка элементов интерьера и финальная доводка.
-              </p>
-
-              <a href="#contacts">
-                <span data-i18n="discuss">
-                  Обсудить проект
-                </span>
-                <span>→</span>
-              </a>
-
-            </article>
-
-
-            <article class="service-card">
-
-              <div class="service-card__number">
-                02
-              </div>
-
-              <div class="service-icon">
-                ⌂
-              </div>
-
-              <h3>
-                Внутренняя отделка
-              </h3>
-
-              <p>
-                Создаём единое пространство с аккуратной отделкой стен,
-                пола, потолка и других поверхностей.
-              </p>
-
-              <a href="#contacts">
-                <span data-i18n="discuss">
-                  Обсудить проект
-                </span>
-                <span>→</span>
-              </a>
-
-            </article>
-
-
-            <article class="service-card">
-
-              <div class="service-card__number">
-                03
-              </div>
-
-              <div class="service-icon">
-                ▦
-              </div>
-
-              <h3>
-                Инженерия и подготовка
-              </h3>
-
-              <p>
-                Организуем подготовительные этапы и работы,
-                необходимые для качественного и долговечного ремонта.
-              </p>
-
-              <a href="#contacts">
-                <span data-i18n="discuss">
-                  Обсудить проект
-                </span>
-                <span>→</span>
-              </a>
-
-            </article>
-
-
-            <article class="service-card">
-
-              <div class="service-card__number">
-                04
-              </div>
-
-              <div class="service-icon">
-                ◐
-              </div>
-
-              <h3>
-                Финишные решения
-              </h3>
-
-              <p>
-                Завершаем объект до готового состояния,
-                уделяя внимание стыкам, деталям и общей аккуратности результата.
-              </p>
-
-              <a href="#contacts">
-                <span data-i18n="discuss">
-                  Обсудить проект
-                </span>
-                <span>→</span>
-              </a>
-
-            </article>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- ABOUT -->
-      <section
-        class="section section--dark"
-        id="about"
-      >
-
-        <div class="container about-grid">
-
-          <div>
-
-            <p
-              class="eyebrow eyebrow--light"
-              data-i18n="aboutEyebrow"
-            >
-              О КОМПАНИИ
-            </p>
-
-            <h2 data-i18n="aboutTitle">
-              Практичный подход.
-              <br />
-              <span>Чистый результат.</span>
-            </h2>
-
-          </div>
-
-
-          <div class="about-copy">
-
-            <p class="about-copy__lead">
-              <span data-i18n="aboutLead">
-                AGStroy — это внимание к пропорциям,
-                материалам и тому, как готовое пространство
-                будет использоваться каждый день.
-              </span>
-            </p>
-
-            <p data-i18n="aboutText">
-              Мы работаем с частными и коммерческими помещениями,
-              подбирая решения под конкретную задачу.
-              Для нас важно, чтобы результат выглядел хорошо
-              не только на фотографии, но и в реальной жизни.
-            </p>
-
-
-            <div class="about-points">
-
-              <div>
-                <strong>01</strong>
-                <span data-i18n="point1">
-                  Акцент на аккуратность и качество исполнения
-                </span>
-              </div>
-
-              <div>
-                <strong>02</strong>
-                <span data-i18n="point2">
-                  Решения под размеры и особенности объекта
-                </span>
-              </div>
-
-              <div>
-                <strong>03</strong>
-                <span data-i18n="point3">
-                  Прозрачная коммуникация на каждом этапе
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- WORKS / PORTFOLIO -->
-      <section
-        class="section"
-        id="works"
-      >
-
-        <div class="container">
-
-          <div class="section-heading section-heading--works">
-
-            <div>
-
-              <p
-                class="eyebrow"
-                data-i18n="worksEyebrow"
-              >
-                ПОРТФОЛИО
-              </p>
-
-              <h2 data-i18n="worksTitle">
-                Примеры работ
-              </h2>
-
-            </div>
-
-          </div>
-
-
-          <!-- СЮДА JAVASCRIPT АВТОМАТИЧЕСКИ ВСТАВИТ ФОТОГРАФИИ -->
-          <div
-            class="works-grid"
-            id="worksGrid"
-          ></div>
-
-
-          <!-- ПАГИНАЦИЯ -->
-          <div
-            class="pagination"
-            id="pagination"
-            aria-label="Пагинация работ"
-          ></div>
-
-        </div>
-
-      </section>
-
-
-      <!-- PROCESS -->
-      <section
-        class="section section--soft"
-        id="process"
-      >
-
-        <div class="container">
-
-          <div class="section-heading">
-
-            <div>
-
-              <p
-                class="eyebrow"
-                data-i18n="processEyebrow"
-              >
-                ПРОЦЕСС
-              </p>
-
-              <h2 data-i18n="processTitle">
-                Как мы работаем
-              </h2>
-
-            </div>
-
-          </div>
-
-
-          <div class="process-grid">
-
-            <div class="process-card">
-              <span>01</span>
-              <h3>Знакомство</h3>
-              <p>
-                Вы рассказываете о задаче, присылаете размеры,
-                фото или чертежи — мы уточняем детали.
-              </p>
-            </div>
-
-            <div class="process-card">
-              <span>02</span>
-              <h3>Предложение</h3>
-              <p>
-                Определяем состав работ, материалы
-                и формат реализации проекта.
-              </p>
-            </div>
-
-            <div class="process-card">
-              <span>03</span>
-              <h3>Выполнение</h3>
-              <p>
-                Организуем работу по этапам
-                и контролируем аккуратность исполнения.
-              </p>
-            </div>
-
-            <div class="process-card">
-              <span>04</span>
-              <h3>Результат</h3>
-              <p>
-                Передаём готовое решение и оставляем пространство
-                чистым, понятным и функциональным.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- CONTACTS -->
-      <section
-        class="section contact-section"
-        id="contacts"
-      >
-
-        <div class="container contact-card">
-
-          <div class="contact-card__copy">
-
-            <p
-              class="eyebrow"
-              data-i18n="contactsEyebrow"
-            >
-              КОНТАКТЫ
-            </p>
-
-            <h2 data-i18n="contactsTitle">
-              Расскажите,
-              <br />
-              <span>что нужно сделать.</span>
-            </h2>
-
-            <p data-i18n="contactsText">
-              Свяжитесь с Aharon, чтобы обсудить ваш проект,
-              материалы, размеры и формат работ.
-            </p>
-
-          </div>
-
-
-          <div class="contact-card__details">
-
-            <a
-              href="tel:+37477693435"
-              class="contact-line"
-            >
-              <span
-                class="contact-line__label"
-                data-i18n="phone"
-              >
-                Телефон
-              </span>
-
-              <strong>
-                +374 77 693 435
-              </strong>
-            </a>
-
-
-            <a
-              href="tel:+37495095333"
-              class="contact-line"
-            >
-              <span
-                class="contact-line__label"
-                data-i18n="phone"
-              >
-                Телефон
-              </span>
-
-              <strong>
-                +374 95 095 333
-              </strong>
-            </a>
-
-
-            <a
-              href="mailto:aharon200303@gmail.com"
-              class="contact-line"
-            >
-              <span
-                class="contact-line__label"
-                data-i18n="email"
-              >
-                Почта
-              </span>
-
-              <strong>
-                aharon200303@gmail.com
-              </strong>
-            </a>
-
-
-            <div class="contact-line">
-
-              <span
-                class="contact-line__label"
-                data-i18n="contactPerson"
-              >
-                Контактное лицо
-              </span>
-
-              <strong>
-                Aharon Grigoryan
-              </strong>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-      <div class="container footer__inner">
-
-        <div class="brand brand--footer">
-
-          <span class="brand__mark">
-            <img src="logo.png" alt="AGStroy" />
-          </span>
-
-          <span class="brand__text">
-            AG<span>Stroy</span>
-          </span>
-
-        </div>
-
-        <p data-i18n="footerText">
-          Ремонт домов под ключ · отделка · инженерия · индивидуальные решения
-        </p>
-
-        <a
-          href="#top"
-          data-i18n="toTop"
-        >
-          Наверх ↑
-        </a>
-
+<div class="site-shell">
+
+<header class="header" id="top">
+  <div class="container header__inner">
+
+    <a class="brand" href="#top" aria-label="AGStroy">
+      <span class="brand__mark">
+        <img src="logo.png" alt="AGStroy">
+      </span>
+      <span class="brand__text">AG<span>Stroy</span></span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Открыть меню"
+      data-i18n-aria-label="menuOpen"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" aria-label="Основная навигация" data-i18n-aria-label="mainNav">
+      <a href="#services" data-i18n="navServices">Услуги</a>
+      <a href="#about" data-i18n="navAbout">О нас</a>
+      <a href="works.html" data-i18n="navWorks">Работы</a>
+      <a href="#process" data-i18n="navProcess">Как работаем</a>
+      <a href="#contacts" data-i18n="navContacts">Контакты</a>
+    </nav>
+
+    <div class="header__controls">
+      <div class="language-switcher" role="group" aria-label="Язык сайта">
+        <button type="button" class="language-button is-active" data-lang="ru">RU</button>
+        <button type="button" class="language-button" data-lang="en">EN</button>
+        <button type="button" class="language-button" data-lang="hy">HY</button>
       </div>
 
-    </footer>
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Переключить тему"
+        aria-pressed="false"
+      >
+        <span class="theme-icon theme-icon--sun" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon--moon" aria-hidden="true">☾</span>
+      </button>
+    </div>
 
   </div>
+</header>
 
+<main>
 
-  <!-- JAVASCRIPT -->
-  <script src="script.js"></script>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container hero__grid">
 
+    <div>
+      <p class="eyebrow" data-i18n="heroEyebrow">
+        РЕМОНТ ДОМОВ ПОД КЛЮЧ
+      </p>
+
+      <h1 data-i18n="heroTitle">
+        Создаём пространство,
+        <span>в котором хочется жить.</span>
+      </h1>
+
+      <p class="hero__lead" data-i18n="heroLead">
+        AGStroy выполняет комплексный ремонт домов и помещений под ключ —
+        от подготовки и инженерных работ до чистовой отделки и финальных деталей.
+      </p>
+
+      <div class="hero__actions">
+        <a class="button button--primary" href="works.html">
+          <span data-i18n="heroWorks">Смотреть работы</span>
+          <span>↗</span>
+        </a>
+
+        <a class="button button--ghost" href="#contacts" data-i18n="heroContact">
+          Связаться с нами
+        </a>
+      </div>
+
+      <div class="hero__stats">
+        <div>
+          <strong>01</strong>
+          <span data-i18n="stat1">
+            Индивидуальный<br>
+            подход
+          </span>
+        </div>
+
+        <div>
+          <strong>02</strong>
+          <span data-i18n="stat2">
+            Продуманные<br>
+            решения
+          </span>
+        </div>
+
+        <div>
+          <strong>03</strong>
+          <span data-i18n="stat3">
+            Внимание<br>
+            к деталям
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="visual-card">
+
+        <div class="visual-card__top">
+          <span>AGSTROY</span>
+          <span>01 / 04</span>
+        </div>
+
+        <div class="visual-placeholder">
+          <div class="placeholder-lines"></div>
+          <div class="sink-shape"></div>
+          <div class="cabinet-shape"></div>
+        </div>
+
+        <div class="visual-card__bottom">
+          <span data-i18n="quality">Качество в деталях</span>
+          <span>EST. 2024</span>
+        </div>
+
+      </div>
+
+      <div class="floating-chip floating-chip--top">
+        <span class="chip-dot"></span>
+        <span data-i18n="repair">Ремонт</span>
+      </div>
+
+      <div class="floating-chip floating-chip--bottom">
+        <span>✦</span>
+        <span data-i18n="furniture">Мебель</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-label="AGStroy">
+  <div class="ticker__track">
+
+    <div class="ticker__group">
+      <span>AGSTROY</span>
+      <i>✦</i>
+      <span>CONSTRUCTION</span>
+      <i>✦</i>
+      <span>INTERIOR</span>
+      <i>✦</i>
+      <span>FURNITURE</span>
+      <i>✦</i>
+      <span>RENOVATION</span>
+      <i>✦</i>
+    </div>
+
+    <div class="ticker__group" aria-hidden="true">
+      <span>AGSTROY</span>
+      <i>✦</i>
+      <span>CONSTRUCTION</span>
+      <i>✦</i>
+      <span>INTERIOR</span>
+      <i>✦</i>
+      <span>FURNITURE</span>
+      <i>✦</i>
+      <span>RENOVATION</span>
+      <i>✦</i>
+    </div>
+
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow" data-i18n="servicesEyebrow">ЧТО МЫ ДЕЛАЕМ</p>
+        <h2 data-i18n="servicesTitle">Комплексный ремонт под ключ</h2>
+      </div>
+
+      <p data-i18n="servicesLead">
+        Берём на себя весь комплекс работ, чтобы вам не пришлось
+        координировать разных мастеров и подрядчиков.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 01 -->
+      <article class="service-card service-card--large">
+        <span class="service-card__number">01</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10.5 12 3l9 7.5"></path>
+            <path d="M5.5 9.5V21h13V9.5"></path>
+            <path d="M9 21v-6h6v6"></path>
+          </svg>
+        </div>
+
+        <h3>Ремонт дома под ключ</h3>
+        <p>Комплексно выполняем ремонт.</p>
+
+        <a href="#contacts">
+          <span data-i18n="discuss">Обсудить проект</span>
+          <span>↗</span>
+        </a>
+      </article>
+
+      <!-- 02 -->
+      <article class="service-card">
+        <span class="service-card__number">02</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+            <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+            <rect x="4" y="14" width="6" height="6" rx="1"></rect>
+            <rect x="14" y="14" width="6" height="6" rx="1"></rect>
+          </svg>
+        </div>
+
+        <h3>Внутренняя отделка</h3>
+        <p>Создаём единое пространство.</p>
+
+        <a href="#contacts">
+          <span data-i18n="discuss">Обсудить проект</span>
+          <span>↗</span>
+        </a>
+      </article>
+
+      <!-- 03 -->
+      <article class="service-card">
+        <span class="service-card__number">03</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5h16"></path>
+            <path d="M4 9h10"></path>
+            <path d="M4 13h16"></path>
+            <path d="M4 17h7"></path>
+            <path d="m18 15 2 2-4 4-2-2 4-4Z"></path>
+          </svg>
+        </div>
+
+        <h3>Инженерия и подготовка</h3>
+        <p>Организуем подготовительные этапы.</p>
+
+        <a href="#contacts">
+          <span data-i18n="discuss">Обсудить проект</span>
+          <span>↗</span>
+        </a>
+      </article>
+
+      <!-- 04 -->
+      <article class="service-card">
+        <span class="service-card__number">04</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"></path>
+            <path d="m19 16 .7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"></path>
+          </svg>
+        </div>
+
+        <h3>Финишные решения</h3>
+        <p>Завершаем объект до готового состояния.</p>
+
+        <a href="#contacts">
+          <span data-i18n="discuss">Обсудить проект</span>
+          <span>↗</span>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section--soft" id="about">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div>
+        <p class="eyebrow eyebrow--light" data-i18n="aboutEyebrow">
+          О КОМПАНИИ
+        </p>
+
+        <h2 data-i18n="aboutTitle">
+          Практичный подход.<br>
+          <span>Чистый результат.</span>
+        </h2>
+      </div>
+
+      <div class="about-copy">
+        <p class="about-copy__lead" data-i18n="aboutLead">
+          AGStroy — это внимание к пропорциям, материалам и тому,
+          как готовое пространство будет использоваться каждый день.
+        </p>
+
+        <p data-i18n="aboutText">
+          Мы работаем с частными и коммерческими помещениями.
+        </p>
+
+        <div class="about-points">
+
+          <div>
+            <strong>01</strong>
+            <span data-i18n="point1">
+              Акцент на аккуратность и качество исполнения
+            </span>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <span data-i18n="point2">
+              Решения под размеры и особенности объекта
+            </span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span data-i18n="point3">
+              Прозрачная коммуникация на каждом этапе
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow" data-i18n="processEyebrow">ПРОЦЕСС</p>
+        <h2 data-i18n="processTitle">Как мы работаем</h2>
+      </div>
+    </div>
+
+    <div class="services-grid process-grid">
+
+      <!-- 01 -->
+      <article class="service-card process-card">
+        <span class="service-card__number">01</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3"></circle>
+            <circle cx="17" cy="10" r="2"></circle>
+            <path d="M3.5 20c.7-3.3 2.4-5 5.5-5s4.8 1.7 5.5 5"></path>
+            <path d="M15 15.5c2.5.1 4.2 1.5 5 4.5"></path>
+          </svg>
+        </div>
+
+        <h3>Знакомство</h3>
+        <p>Вы рассказываете о задаче.</p>
+      </article>
+
+      <!-- 02 -->
+      <article class="service-card process-card">
+        <span class="service-card__number">02</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="3.5" width="16" height="17" rx="2"></rect>
+            <path d="M8 8h8"></path>
+            <path d="M8 12h8"></path>
+            <path d="M8 16h5"></path>
+          </svg>
+        </div>
+
+        <h3>Предложение</h3>
+        <p>Определяем состав работ.</p>
+      </article>
+
+      <!-- 03 -->
+      <article class="service-card process-card">
+        <span class="service-card__number">03</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 5 19 10"></path>
+            <path d="m13 6-7.5 7.5L4 18l4.5-1.5L16 9"></path>
+            <path d="m15 4 2-2 5 5-2 2"></path>
+            <path d="M4 21h6"></path>
+          </svg>
+        </div>
+
+        <h3>Выполнение</h3>
+        <p>Организуем работу по этапам.</p>
+      </article>
+
+      <!-- 04 -->
+      <article class="service-card process-card">
+        <span class="service-card__number">04</span>
+
+        <div class="service-icon service-icon--svg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8.5"></circle>
+            <path d="m8 12 2.6 2.7L16.5 9"></path>
+          </svg>
+        </div>
+
+        <h3>Результат</h3>
+        <p>Передаём готовое решение.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section section--soft" id="contacts">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow" data-i18n="contactsEyebrow">КОНТАКТЫ</p>
+
+        <h2 data-i18n="contactsTitle">
+          Расскажите,<br>
+          <span>что нужно сделать.</span>
+        </h2>
+      </div>
+
+      <p data-i18n="contactsText">
+        Свяжитесь с Aharon, чтобы обсудить ваш проект, материалы,
+        размеры и формат работ.
+      </p>
+    </div>
+
+    <div class="contact-panel">
+
+      <div class="contact-panel__main">
+        <span class="contact-panel__label" data-i18n="contactPanelLabel">
+          НАЧНЁМ С ДИАЛОГА
+        </span>
+
+        <h3 data-i18n="contactPanelTitle">
+          Обсудим задачу и подберём подходящее решение.
+        </h3>
+
+        <p data-i18n="contactPanelText">
+          Позвоните или напишите нам. Ответим на вопросы
+          и договоримся о следующем шаге.
+        </p>
+
+        <a class="button button--primary" href="tel:+37477693435">
+          <span data-i18n="contactButton">Позвонить нам</span>
+          <span>↗</span>
+        </a>
+      </div>
+
+      <div class="contact-panel__details">
+
+        <a class="contact-item" href="tel:+37477693435">
+          <span>01 / PHONE</span>
+          <strong>+374 77 693 435</strong>
+          <small data-i18n="phone">Телефон</small>
+        </a>
+
+        <a class="contact-item" href="tel:+37495095333">
+          <span>02 / PHONE</span>
+          <strong>+374 95 095 333</strong>
+          <small data-i18n="phone2">Дополнительный телефон</small>
+        </a>
+
+        <a class="contact-item" href="mailto:info@agstroy.am">
+          <span>03 / EMAIL</span>
+          <strong>info@agstroy.am</strong>
+          <small data-i18n="email">Почта</small>
+        </a>
+
+        <div class="contact-item contact-item--static">
+          <span>04 / CONTACT</span>
+          <strong>Aharon</strong>
+          <small data-i18n="contactPerson">Контактное лицо</small>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+
+    <div class="brand brand--footer">
+      <span class="brand__mark">
+        <img src="logo.png" alt="AGStroy">
+      </span>
+      <span class="brand__text">AG<span>Stroy</span></span>
+    </div>
+
+    <p data-i18n="footerText">
+      Ремонт домов под ключ · отделка · инженерия · индивидуальные решения
+    </p>
+
+    <a href="#top" data-i18n="toTop">
+      Наверх ↑
+    </a>
+
+  </div>
+</footer>
+
+</div>
+
+<script src="js/index.js"></script>
 </body>
 </html>
