@@ -1,4 +1,3 @@
-
 // =========================================================
 // TRANSLATIONS
 // =========================================================
@@ -137,9 +136,8 @@ const translations = {
 let currentLang =
   localStorage.getItem("agstroy-language") || "ru";
 
-const tr = () => {
-  return translations[currentLang] || translations.ru;
-};
+const tr = () =>
+  translations[currentLang] || translations.ru;
 
 
 // =========================================================
@@ -150,16 +148,11 @@ function applyTranslations() {
 
   const lang = tr();
 
-  // Язык страницы
   document.documentElement.lang = lang.lang;
-
-  // Title
   document.title = lang.title;
 
 
-  // -------------------------------------------------------
   // data-i18n
-  // -------------------------------------------------------
 
   document
     .querySelectorAll("[data-i18n]")
@@ -174,9 +167,7 @@ function applyTranslations() {
     });
 
 
-  // -------------------------------------------------------
   // aria-label
-  // -------------------------------------------------------
 
   document
     .querySelectorAll("[data-i18n-aria-label]")
@@ -194,9 +185,7 @@ function applyTranslations() {
     });
 
 
-  // -------------------------------------------------------
-  // ACTIVE LANGUAGE
-  // -------------------------------------------------------
+  // active language
 
   document
     .querySelectorAll(".language-button")
@@ -210,9 +199,7 @@ function applyTranslations() {
     });
 
 
-  // -------------------------------------------------------
-  // UPDATE MENU ARIA
-  // -------------------------------------------------------
+  // menu aria-label
 
   const menuToggle =
     document.querySelector(".menu-toggle");
@@ -235,13 +222,10 @@ function applyTranslations() {
   }
 
 
-  // -------------------------------------------------------
-  // NOTIFY OTHER SCRIPTS
-  // -------------------------------------------------------
-
   window.dispatchEvent(
     new Event("languagechange-agstroy")
   );
+
 }
 
 
@@ -251,18 +235,14 @@ function applyTranslations() {
 
 function applyTheme(theme) {
 
-  // Устанавливаем тему
   document.documentElement.dataset.theme = theme;
 
-
-  // Сохраняем
   localStorage.setItem(
     "agstroy-theme",
     theme
   );
 
 
-  // Обновляем aria-pressed
   const toggle =
     document.getElementById("themeToggle");
 
@@ -281,7 +261,7 @@ function applyTheme(theme) {
 
 
 // =========================================================
-// GET INITIAL THEME
+// INITIAL THEME
 // =========================================================
 
 function getInitialTheme() {
@@ -289,13 +269,16 @@ function getInitialTheme() {
   const savedTheme =
     localStorage.getItem("agstroy-theme");
 
-  if (savedTheme === "dark" || savedTheme === "light") {
+
+  if (
+    savedTheme === "dark" ||
+    savedTheme === "light"
+  ) {
+
     return savedTheme;
+
   }
 
-
-  // Если пользователь ещё ничего не выбирал,
-  // смотрим системную тему
 
   if (
     window.matchMedia &&
@@ -303,11 +286,14 @@ function getInitialTheme() {
       "(prefers-color-scheme: dark)"
     ).matches
   ) {
+
     return "dark";
+
   }
 
 
   return "light";
+
 }
 
 
@@ -317,18 +303,18 @@ function getInitialTheme() {
 
 function setupCommon() {
 
-  // =======================================================
-  // THEME
-  // =======================================================
+  // -------------------------------------------------------
+  // Theme
+  // -------------------------------------------------------
 
   applyTheme(
     getInitialTheme()
   );
 
 
-  // =======================================================
-  // LANGUAGES
-  // =======================================================
+  // -------------------------------------------------------
+  // Languages
+  // -------------------------------------------------------
 
   document
     .querySelectorAll(".language-button")
@@ -341,11 +327,14 @@ function setupCommon() {
           const selectedLanguage =
             button.dataset.lang;
 
+
           if (
             !selectedLanguage ||
             !translations[selectedLanguage]
           ) {
+
             return;
+
           }
 
 
@@ -367,12 +356,13 @@ function setupCommon() {
     });
 
 
-  // =======================================================
-  // THEME TOGGLE
-  // =======================================================
+  // -------------------------------------------------------
+  // Theme toggle
+  // -------------------------------------------------------
 
   const themeToggle =
     document.getElementById("themeToggle");
+
 
   if (themeToggle) {
 
@@ -383,10 +373,12 @@ function setupCommon() {
         const currentTheme =
           document.documentElement.dataset.theme;
 
+
         const nextTheme =
           currentTheme === "dark"
             ? "light"
             : "dark";
+
 
         applyTheme(nextTheme);
 
@@ -396,9 +388,9 @@ function setupCommon() {
   }
 
 
-  // =======================================================
-  // MOBILE MENU
-  // =======================================================
+  // -------------------------------------------------------
+  // Mobile menu
+  // -------------------------------------------------------
 
   const nav =
     document.querySelector(".nav");
@@ -446,8 +438,6 @@ function setupCommon() {
     );
 
 
-    // Закрываем меню после клика по ссылке
-
     nav
       .querySelectorAll("a")
       .forEach(link => {
@@ -486,10 +476,6 @@ function setupCommon() {
   }
 
 
-  // =======================================================
-  // APPLY TRANSLATIONS
-  // =======================================================
-
   applyTranslations();
 
 }
@@ -506,7 +492,7 @@ const pagination =
   document.querySelector("#pagination");
 
 
-const perPage = 9;
+const perPage = 6;
 
 let currentPage = 1;
 
@@ -517,22 +503,20 @@ let currentCategory = "all";
 // COUNT
 // =========================================================
 //
-// Здесь указываешь количество фотографий
+// Указываем количество фотографий
 // в каждой папке.
 //
-// Например:
+// images/all/photo1.webp
+// images/all/photo2.webp
 //
 // images/furniture/photo1.webp
 // images/furniture/photo2.webp
-// images/furniture/photo3.webp
-//
-// значит:
-//
-// furniture: 3
 //
 // =========================================================
 
 const worksCount = {
+
+  all: 276,
 
   furniture: 24,
 
@@ -540,14 +524,8 @@ const worksCount = {
 
   plumbing: 33,
 
-  other: 200,
+  other: 200
 
-  // ВАЖНО:
-  // all здесь НЕ используется для общего количества.
-  //
-  // "Все" автоматически собирается из:
-  //
-  // furniture + sinks + plumbing + other
 };
 
 
@@ -559,123 +537,69 @@ const imageExtension = ".webp";
 
 
 // =========================================================
+// GENERATE CATEGORY
+// =========================================================
+
+function generateCategory(
+  folder,
+  count
+) {
+
+  const images = new Array(count);
+
+
+  for (let i = 0; i < count; i++) {
+
+    images[i] =
+      `images/${folder}/photo${i + 1}${imageExtension}`;
+
+  }
+
+
+  return images;
+
+}
+
+
+// =========================================================
 // GENERATE WORKS
 // =========================================================
 
 function generateWorks() {
 
-  const furniture = [];
-
-  const sinks = [];
-
-  const plumbing = [];
-
-  const other = [];
-
-
-  // -------------------------------------------------------
-  // FURNITURE
-  // -------------------------------------------------------
-
-  for (
-    let i = 1;
-    i <= worksCount.furniture;
-    i++
-  ) {
-
-    furniture.push(
-      `images/furniture/photo${i}${imageExtension}`
-    );
-
-  }
-
-
-  // -------------------------------------------------------
-  // SINKS
-  // -------------------------------------------------------
-
-  for (
-    let i = 1;
-    i <= worksCount.sinks;
-    i++
-  ) {
-
-    sinks.push(
-      `images/sinks/photo${i}${imageExtension}`
-    );
-
-  }
-
-
-  // -------------------------------------------------------
-  // PLUMBING
-  // -------------------------------------------------------
-
-  for (
-    let i = 1;
-    i <= worksCount.plumbing;
-    i++
-  ) {
-
-    plumbing.push(
-      `images/plumbing/photo${i}${imageExtension}`
-    );
-
-  }
-
-
-  // -------------------------------------------------------
-  // OTHER
-  // -------------------------------------------------------
-
-  for (
-    let i = 1;
-    i <= worksCount.other;
-    i++
-  ) {
-
-    other.push(
-      `images/other/photo${i}${imageExtension}`
-    );
-
-  }
-
-
-  // -------------------------------------------------------
-  // ALL
-  // -------------------------------------------------------
-
-  const all = [
-
-    ...furniture,
-
-    ...sinks,
-
-    ...plumbing,
-
-    ...other
-
-  ];
-
-
   return {
 
-    all,
+    all: generateCategory(
+      "all",
+      worksCount.all
+    ),
 
-    furniture,
+    furniture: generateCategory(
+      "furniture",
+      worksCount.furniture
+    ),
 
-    sinks,
+    sinks: generateCategory(
+      "sinks",
+      worksCount.sinks
+    ),
 
-    plumbing,
+    plumbing: generateCategory(
+      "plumbing",
+      worksCount.plumbing
+    ),
 
-    other
+    other: generateCategory(
+      "other",
+      worksCount.other
+    )
 
   };
 
 }
 
 
-let worksByCategory =
+const worksByCategory =
   generateWorks();
 
 
@@ -693,7 +617,7 @@ function getCurrentWorks() {
 
 
 // =========================================================
-// CURRENT PAGE
+// PAGE WORKS
 // =========================================================
 
 function getPageWorks() {
@@ -715,7 +639,7 @@ function getPageWorks() {
 
 
 // =========================================================
-// RENDER
+// RENDER WORKS
 // =========================================================
 
 function renderWorks() {
@@ -748,62 +672,127 @@ function renderWorks() {
 
 
   // =======================================================
-  // RENDER IMAGES
+  // IMAGES
   // =======================================================
 
-  worksGrid.innerHTML =
-
-    pageWorks
-      .map((path, index) => {
-
-        const number =
-          (currentPage - 1) * perPage +
-          index +
-          1;
+  worksGrid.innerHTML = "";
 
 
-        return `
+  const fragment =
+    document.createDocumentFragment();
 
-          <article class="work-card">
 
-            <button
-              class="work-card__image"
-              type="button"
-              data-image="${path}"
-              aria-label="${tr().openPhoto} ${number}"
-            >
+  pageWorks.forEach(
+    (path, index) => {
 
-              <img
-                src="${path}"
-                alt="AGStroy — ${tr().openPhoto} ${number}"
-                loading="${
-                  index < 3
-                    ? "eager"
-                    : "lazy"
-                }"
-                decoding="async"
-              >
+      const number =
+        (currentPage - 1) * perPage +
+        index +
+        1;
 
-              <span
-                class="work-card__zoom"
-                aria-hidden="true"
-              >
-                ↗
-              </span>
 
-            </button>
+      const article =
+        document.createElement("article");
 
-          </article>
+      article.className =
+        "work-card";
 
-        `;
 
-      })
-      .join("");
+      const button =
+        document.createElement("button");
+
+      button.className =
+        "work-card__image";
+
+      button.type = "button";
+
+      button.dataset.image =
+        path;
+
+      button.setAttribute(
+        "aria-label",
+        `${tr().openPhoto} ${number}`
+      );
+
+
+      const img =
+        document.createElement("img");
+
+      img.src = path;
+
+      img.alt =
+        `AGStroy — ${tr().openPhoto} ${number}`;
+
+
+      // ---------------------------------------------------
+      // Loading optimization
+      // ---------------------------------------------------
+
+      if (index === 0) {
+
+        img.loading = "eager";
+
+        img.fetchPriority = "high";
+
+      } else {
+
+        img.loading = "lazy";
+
+        img.fetchPriority = "low";
+
+      }
+
+
+      img.decoding = "async";
+
+
+      // ---------------------------------------------------
+      // Zoom icon
+      // ---------------------------------------------------
+
+      const zoom =
+        document.createElement("span");
+
+      zoom.className =
+        "work-card__zoom";
+
+      zoom.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      zoom.textContent = "↗";
+
+
+      button.appendChild(img);
+
+      button.appendChild(zoom);
+
+      article.appendChild(button);
+
+      fragment.appendChild(article);
+
+    }
+  );
+
+
+  worksGrid.appendChild(fragment);
 
 
   // =======================================================
   // PAGINATION
   // =======================================================
+
+  renderPagination(totalPages);
+
+}
+
+
+// =========================================================
+// PAGINATION
+// =========================================================
+
+function renderPagination(totalPages) {
 
   const pages = [1];
 
@@ -814,7 +803,6 @@ function renderWorks() {
 
 
   for (
-
     let i =
       Math.max(
         2,
@@ -828,7 +816,6 @@ function renderWorks() {
       );
 
     i++
-
   ) {
 
     pages.push(i);
@@ -862,11 +849,7 @@ function renderWorks() {
       class="pagination__button"
       data-page="${currentPage - 1}"
       aria-label="${tr().prevPage}"
-      ${
-        currentPage === 1
-          ? "disabled"
-          : ""
-      }
+      ${currentPage === 1 ? "disabled" : ""}
     >
       ←
     </button>
@@ -878,18 +861,15 @@ function renderWorks() {
         if (page === "...") {
 
           return `
-
             <span class="pagination__dots">
               ...
             </span>
-
           `;
 
         }
 
 
         return `
-
           <button
             class="pagination__button ${
               page === currentPage
@@ -900,7 +880,6 @@ function renderWorks() {
           >
             ${page}
           </button>
-
         `;
 
       })
@@ -911,11 +890,7 @@ function renderWorks() {
       class="pagination__button"
       data-page="${currentPage + 1}"
       aria-label="${tr().nextPage}"
-      ${
-        currentPage === totalPages
-          ? "disabled"
-          : ""
-      }
+      ${currentPage === totalPages ? "disabled" : ""}
     >
       →
     </button>
@@ -923,57 +898,44 @@ function renderWorks() {
   `;
 
 
-  // =======================================================
-  // PAGINATION EVENTS
-  // =======================================================
+  // Один обработчик вместо
+  // множества onclick
 
-  pagination
-    .querySelectorAll(
-      "button:not(:disabled)"
-    )
-    .forEach(button => {
+  pagination.onclick = event => {
 
-      button.onclick = () => {
-
-        currentPage =
-          Number(
-            button.dataset.page
-          );
+    const button =
+      event.target.closest(
+        "button[data-page]"
+      );
 
 
-        renderWorks();
+    if (
+      !button ||
+      button.disabled
+    ) {
+
+      return;
+
+    }
 
 
-        document
-          .querySelector("#works")
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-      };
-
-    });
+    currentPage =
+      Number(
+        button.dataset.page
+      );
 
 
-  // =======================================================
-  // DEBUG
-  // =======================================================
+    renderWorks();
 
-  console.log(
-    "Категория:",
-    currentCategory
-  );
 
-  console.log(
-    "Количество фото:",
-    works.length
-  );
+    document
+      .querySelector("#works")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
 
-  console.log(
-    "Фото на странице:",
-    perPage
-  );
+  };
 
 }
 
@@ -1089,39 +1051,41 @@ function createFilters() {
   );
 
 
-  filters
-    .querySelectorAll(
-      ".filter-button"
-    )
-    .forEach(button => {
+  // Один обработчик на контейнер
 
-      button.addEventListener(
-        "click",
-        () => {
+  filters.onclick = event => {
 
-          currentCategory =
-            button.dataset.category;
-
-
-          currentPage = 1;
-
-
-          createFilters();
-
-          renderWorks();
-
-
-          document
-            .querySelector("#works")
-            ?.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-        }
+    const button =
+      event.target.closest(
+        ".filter-button"
       );
 
-    });
+
+    if (!button) {
+      return;
+    }
+
+
+    currentCategory =
+      button.dataset.category;
+
+
+    currentPage = 1;
+
+
+    createFilters();
+
+    renderWorks();
+
+
+    document
+      .querySelector("#works")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+  };
 
 }
 
@@ -1150,11 +1114,9 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    // Общие функции сайта
     setupCommon();
 
 
-    // Если это не страница works
     if (!worksGrid) {
       return;
     }
