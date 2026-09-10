@@ -1,6 +1,17 @@
+
+// =========================================================
+// TRANSLATIONS
+// =========================================================
+
 const translations = {
+
+  // =======================================================
+  // RUSSIAN
+  // =======================================================
+
   ru: {
     title: "AGStroy — строительство и ремонт",
+
     lang: "ru",
 
     menuOpen: "Открыть меню",
@@ -13,69 +24,8 @@ const translations = {
     navProcess: "Как работаем",
     navContacts: "Контакты",
 
-    heroEyebrow: "РЕМОНТ ДОМОВ ПОД КЛЮЧ",
-    heroTitle: "Создаём пространство, <span>в котором хочется жить.</span>",
-    heroLead:
-      "AGStroy выполняет комплексный ремонт домов и помещений под ключ — от подготовки и инженерных работ до чистовой отделки и финальных деталей.",
-    heroWorks: "Смотреть работы",
-    heroContact: "Связаться с нами",
-
-    stat1: "Индивидуальный<br>подход",
-    stat2: "Продуманные<br>решения",
-    stat3: "Внимание<br>к деталям",
-
-    quality: "Качество в деталях",
-    repair: "Ремонт",
-    furniture: "Мебель",
-
-    servicesEyebrow: "ЧТО МЫ ДЕЛАЕМ",
-    servicesTitle: "Комплексный ремонт под ключ",
-    servicesLead:
-      "Берём на себя весь комплекс работ, чтобы вам не пришлось координировать разных мастеров и подрядчиков.",
-    discuss: "Обсудить проект",
-
-    aboutEyebrow: "О КОМПАНИИ",
-    aboutTitle: "Практичный подход.<br><span>Чистый результат.</span>",
-    aboutLead:
-      "AGStroy — это внимание к пропорциям, материалам и тому, как готовое пространство будет использоваться каждый день.",
-    aboutText:
-      "Мы работаем с частными и коммерческими помещениями, подбирая решения под конкретную задачу. Для нас важно, чтобы результат выглядел хорошо не только на фотографии, но и в реальной жизни.",
-
-    point1: "Акцент на аккуратность и качество исполнения",
-    point2: "Решения под размеры и особенности объекта",
-    point3: "Прозрачная коммуникация на каждом этапе",
-
     worksEyebrow: "ПОРТФОЛИО",
     worksTitle: "Примеры работ",
-
-    processEyebrow: "ПРОЦЕСС",
-    processTitle: "Как мы работаем",
-
-    contactsEyebrow: "КОНТАКТЫ",
-    contactsTitle: "Расскажите,<br><span>что нужно сделать.</span>",
-    contactsText:
-      "Свяжитесь с Aharon, чтобы обсудить ваш проект, материалы, размеры и формат работ.",
-
-    contactPanelLabel: "НАЧНЁМ С ДИАЛОГА",
-    contactPanelTitle:
-      "Обсудим задачу и подберём подходящее решение.",
-    contactPanelText:
-      "Позвоните или напишите нам. Ответим на вопросы и договоримся о следующем шаге.",
-    contactButton: "Позвонить нам",
-
-    phone: "Телефон",
-    phone2: "Дополнительный телефон",
-    email: "Почта",
-    contactPerson: "Контактное лицо",
-
-    footerText:
-      "Ремонт домов под ключ · отделка · инженерия · индивидуальные решения",
-    toTop: "Наверх ↑",
-
-    prevPage: "Предыдущая страница",
-    nextPage: "Следующая страница",
-    close: "Закрыть",
-    openPhoto: "Открыть фотографию",
 
     allWorks: "Все",
     furnitureWorks: "Мебель",
@@ -83,37 +33,26 @@ const translations = {
     plumbingWorks: "Сантехника",
     otherWorks: "Остальное",
 
-    serviceTitles: [
-      "Ремонт дома под ключ",
-      "Внутренняя отделка",
-      "Инженерия и подготовка",
-      "Финишные решения"
-    ],
+    prevPage: "Предыдущая страница",
+    nextPage: "Следующая страница",
 
-    serviceTexts: [
-      "Комплексно выполняем ремонт: подготовительные работы, инженерные коммуникации, выравнивание, отделка, установка элементов интерьера и финальная доводка.",
-      "Создаём единое пространство с аккуратной отделкой стен, пола, потолка и других поверхностей.",
-      "Организуем подготовительные этапы и работы, необходимые для качественного и долговечного ремонта.",
-      "Завершаем объект до готового состояния, уделяя внимание стыкам, деталям и общей аккуратности результата."
-    ],
+    close: "Закрыть",
+    openPhoto: "Открыть фотографию",
 
-    processTitles: [
-      "Знакомство",
-      "Предложение",
-      "Выполнение",
-      "Результат"
-    ],
+    footerText:
+      "Ремонт домов под ключ · отделка · инженерия · индивидуальные решения",
 
-    processTexts: [
-      "Вы рассказываете о задаче, присылаете размеры, фото или чертежи — мы уточняем детали.",
-      "Определяем состав работ, материалы и формат реализации проекта.",
-      "Организуем работу по этапам и контролируем аккуратность исполнения.",
-      "Передаём готовое решение и оставляем пространство чистым, понятным и функциональным."
-    ]
+    toTop: "Наверх ↑"
   },
+
+
+  // =======================================================
+  // ENGLISH
+  // =======================================================
 
   en: {
     title: "AGStroy — construction & renovation",
+
     lang: "en",
 
     menuOpen: "Open menu",
@@ -126,71 +65,8 @@ const translations = {
     navProcess: "Process",
     navContacts: "Contacts",
 
-    heroEyebrow: "TURNKEY HOME RENOVATION",
-    heroTitle:
-      "We create spaces <span>you want to live in.</span>",
-    heroLead:
-      "AGStroy provides complete turnkey renovation for homes and interiors — from preparation and engineering to finishing and final details.",
-    heroWorks: "View our work",
-    heroContact: "Contact us",
-
-    stat1: "Individual<br>approach",
-    stat2: "Thoughtful<br>solutions",
-    stat3: "Attention<br>to detail",
-
-    quality: "Quality in every detail",
-    repair: "Renovation",
-    furniture: "Furniture",
-
-    servicesEyebrow: "WHAT WE DO",
-    servicesTitle: "Complete turnkey renovation",
-    servicesLead:
-      "We handle the full scope of work so you do not have to coordinate different contractors.",
-    discuss: "Discuss a project",
-
-    aboutEyebrow: "ABOUT THE COMPANY",
-    aboutTitle: "Practical approach.<br><span>Clean result.</span>",
-    aboutLead:
-      "AGStroy focuses on proportions, materials and how a finished space will be used every day.",
-    aboutText:
-      "We work with private and commercial spaces, choosing solutions for each specific task. The result should look good not only in photos, but in real life.",
-
-    point1: "Focus on clean, high-quality execution",
-    point2: "Solutions tailored to the space and its specifics",
-    point3: "Transparent communication at every stage",
-
     worksEyebrow: "PORTFOLIO",
     worksTitle: "Selected work",
-
-    processEyebrow: "PROCESS",
-    processTitle: "How we work",
-
-    contactsEyebrow: "CONTACTS",
-    contactsTitle:
-      "Tell us <br><span>what needs to be done.</span>",
-    contactsText:
-      "Contact Aharon to discuss your project, materials, dimensions and scope of work.",
-
-    contactPanelLabel: "LET'S START A CONVERSATION",
-    contactPanelTitle:
-      "Let's discuss the task and find the right solution.",
-    contactPanelText:
-      "Call or message us. We will answer your questions and agree on the next step.",
-    contactButton: "Call us",
-
-    phone: "Phone",
-    phone2: "Additional phone",
-    email: "Email",
-    contactPerson: "Contact person",
-
-    footerText:
-      "Turnkey renovation · finishing · engineering · custom solutions",
-    toTop: "Back to top ↑",
-
-    prevPage: "Previous page",
-    nextPage: "Next page",
-    close: "Close",
-    openPhoto: "Open photo",
 
     allWorks: "All",
     furnitureWorks: "Furniture",
@@ -198,37 +74,26 @@ const translations = {
     plumbingWorks: "Plumbing",
     otherWorks: "Other",
 
-    serviceTitles: [
-      "Turnkey home renovation",
-      "Interior finishing",
-      "Engineering & preparation",
-      "Final solutions"
-    ],
+    prevPage: "Previous page",
+    nextPage: "Next page",
 
-    serviceTexts: [
-      "We handle preparation, engineering, leveling, finishing, interior elements and final detailing as one complete process.",
-      "We create a cohesive space with careful finishing of walls, floors, ceilings and other surfaces.",
-      "We organize the preparation stages and work required for a high-quality, durable renovation.",
-      "We bring the project to a finished state, paying attention to joints, details and overall precision."
-    ],
+    close: "Close",
+    openPhoto: "Open photo",
 
-    processTitles: [
-      "Introduction",
-      "Proposal",
-      "Execution",
-      "Result"
-    ],
+    footerText:
+      "Turnkey renovation · finishing · engineering · custom solutions",
 
-    processTexts: [
-      "You tell us about the task and share dimensions, photos or drawings — we clarify the details.",
-      "We define the scope, materials and project implementation format.",
-      "We organize the work by stages and control the quality of execution.",
-      "We deliver the finished solution and leave the space clean, clear and functional."
-    ]
+    toTop: "Back to top ↑"
   },
+
+
+  // =======================================================
+  // ARMENIAN
+  // =======================================================
 
   hy: {
     title: "AGStroy — շինարարություն և վերանորոգում",
+
     lang: "hy",
 
     menuOpen: "Բացել մենյուն",
@@ -241,74 +106,8 @@ const translations = {
     navProcess: "Ինչպես ենք աշխատում",
     navContacts: "Կապ",
 
-    heroEyebrow: "ՏՆԵՐԻ ԱՄԲՈՂՋԱԿԱՆ ՎԵՐԱՆՈՐՈԳՈՒՄ",
-    heroTitle:
-      "Ստեղծում ենք տարածքներ, <span>որտեղ ցանկանում եք ապրել։</span>",
-    heroLead:
-      "AGStroy-ն իրականացնում է տների և տարածքների ամբողջական վերանորոգում՝ նախապատրաստումից և ինժեներական աշխատանքներից մինչև վերջնական հարդարում և մանրամասներ։",
-    heroWorks: "Դիտել աշխատանքները",
-    heroContact: "Կապվել մեզ հետ",
-
-    stat1: "Անհատական<br>մոտեցում",
-    stat2: "Մտածված<br>լուծումներ",
-    stat3: "Ուշադրություն<br>մանրուքներին",
-
-    quality: "Որակ՝ յուրաքանչյուր մանրուքում",
-    repair: "Վերանորոգում",
-    furniture: "Կահույք",
-
-    servicesEyebrow: "ԻՆՉ ԵՆՔ ԱՆՈՒՄ",
-    servicesTitle: "Ամբողջական վերանորոգում",
-    servicesLead:
-      "Մենք վերցնում ենք աշխատանքների ամբողջ ծավալը, որպեսզի դուք չհամակարգեք տարբեր մասնագետների աշխատանքը։",
-    discuss: "Քննարկել նախագիծը",
-
-    aboutEyebrow: "ԸՆԿԵՐՈՒԹՅԱՆ ՄԱՍԻՆ",
-    aboutTitle:
-      "Գործնական մոտեցում։<br><span>Մաքուր արդյունք։</span>",
-    aboutLead:
-      "AGStroy-ն ուշադրություն է դարձնում համամասնություններին, նյութերին և նրան, թե ինչպես է պատրաստի տարածքն օգտագործվելու ամեն օր։",
-    aboutText:
-      "Մենք աշխատում ենք մասնավոր և կոմերցիոն տարածքների հետ՝ լուծումները հարմարեցնելով յուրաքանչյուր խնդրին։ Արդյունքը պետք է լավ տեսք ունենա ոչ միայն լուսանկարում, այլև իրական կյանքում։",
-
-    point1: "Շեշտը՝ մաքուր և որակյալ կատարման վրա",
-    point2:
-      "Լուծումներ՝ օբյեկտի չափերին և առանձնահատկություններին համապատասխան",
-    point3:
-      "Թափանցիկ հաղորդակցություն յուրաքանչյուր փուլում",
-
     worksEyebrow: "ՊՈՐՏՖՈԼԻՈ",
     worksTitle: "Կատարված աշխատանքներ",
-
-    processEyebrow: "ԳՈՐԾԸՆԹԱՑ",
-    processTitle: "Ինչպես ենք աշխատում",
-
-    contactsEyebrow: "ԿԱՊ",
-    contactsTitle:
-      "Պատմեք մեզ,<br><span>թե ինչ է պետք անել։</span>",
-    contactsText:
-      "Կապվեք Aharon-ի հետ՝ նախագիծը, նյութերը, չափերը և աշխատանքների ձևաչափը քննարկելու համար։",
-
-    contactPanelLabel: "ՍԿՍԵՆՔ ԶՐՈՒՅՑԻՑ",
-    contactPanelTitle:
-      "Քննարկենք խնդիրը և գտնենք հարմար լուծում։",
-    contactPanelText:
-      "Զանգահարեք կամ գրեք մեզ։ Կպատասխանենք հարցերին և կպայմանավորվենք հաջորդ քայլի մասին։",
-    contactButton: "Զանգահարել մեզ",
-
-    phone: "Հեռախոս",
-    phone2: "Լրացուցիչ հեռախոս",
-    email: "Էլ․ փոստ",
-    contactPerson: "Կոնտակտային անձ",
-
-    footerText:
-      "Տների վերանորոգում · հարդարում · ինժեներական աշխատանքներ · անհատական լուծումներ",
-    toTop: "Վերև ↑",
-
-    prevPage: "Նախորդ էջ",
-    nextPage: "Հաջորդ էջ",
-    close: "Փակել",
-    openPhoto: "Բացել լուսանկարը",
 
     allWorks: "Բոլորը",
     furnitureWorks: "Կահույք",
@@ -316,34 +115,18 @@ const translations = {
     plumbingWorks: "Սանտեխնիկա",
     otherWorks: "Մնացածը",
 
-    serviceTitles: [
-      "Տան ամբողջական վերանորոգում",
-      "Ներքին հարդարում",
-      "Ինժեներական աշխատանքներ և նախապատրաստում",
-      "Վերջնական լուծումներ"
-    ],
+    prevPage: "Նախորդ էջ",
+    nextPage: "Հաջորդ էջ",
 
-    serviceTexts: [
-      "Իրականացնում ենք նախապատրաստում, ինժեներական աշխատանքներ, հարթեցում, հարդարում, ինտերիերի տարրերի տեղադրում և վերջնական աշխատանքներ։",
-      "Ստեղծում ենք միասնական տարածք՝ պատերի, հատակի, առաստաղի և այլ մակերեսների կոկիկ հարդարմամբ։",
-      "Կազմակերպում ենք որակյալ և երկարակյաց վերանորոգման համար անհրաժեշտ նախապատրաստական աշխատանքները։",
-      "Օբյեկտը հասցնում ենք պատրաստ վիճակի՝ ուշադրություն դարձնելով միացումներին, մանրուքներին և ընդհանուր ճշգրտությանը։"
-    ],
+    close: "Փակել",
+    openPhoto: "Բացել լուսանկարը",
 
-    processTitles: [
-      "Ծանոթություն",
-      "Առաջարկ",
-      "Իրականացում",
-      "Արդյունք"
-    ],
+    footerText:
+      "Տների վերանորոգում · հարդարում · ինժեներական աշխատանքներ · անհատական լուծումներ",
 
-    processTexts: [
-      "Դուք ներկայացնում եք խնդիրը և ուղարկում չափերը, լուսանկարները կամ գծագրերը, իսկ մենք հստակեցնում ենք մանրամասները։",
-      "Որոշում ենք աշխատանքների ծավալը, նյութերը և նախագծի իրականացման ձևաչափը։",
-      "Կազմակերպում ենք աշխատանքը փուլերով և վերահսկում կատարման որակը։",
-      "Հանձնում ենք պատրաստի լուծումը և տարածքը թողնում մաքուր, հասկանալի ու ֆունկցիոնալ։"
-    ]
+    toTop: "Վերև ↑"
   }
+
 };
 
 
@@ -354,19 +137,29 @@ const translations = {
 let currentLang =
   localStorage.getItem("agstroy-language") || "ru";
 
-const tr = () =>
-  translations[currentLang] || translations.ru;
+const tr = () => {
+  return translations[currentLang] || translations.ru;
+};
 
 
 // =========================================================
-// TRANSLATIONS
+// APPLY TRANSLATIONS
 // =========================================================
 
 function applyTranslations() {
+
   const lang = tr();
 
+  // Язык страницы
   document.documentElement.lang = lang.lang;
+
+  // Title
   document.title = lang.title;
+
+
+  // -------------------------------------------------------
+  // data-i18n
+  // -------------------------------------------------------
 
   document
     .querySelectorAll("[data-i18n]")
@@ -380,6 +173,10 @@ function applyTranslations() {
 
     });
 
+
+  // -------------------------------------------------------
+  // aria-label
+  // -------------------------------------------------------
 
   document
     .querySelectorAll("[data-i18n-aria-label]")
@@ -397,6 +194,10 @@ function applyTranslations() {
     });
 
 
+  // -------------------------------------------------------
+  // ACTIVE LANGUAGE
+  // -------------------------------------------------------
+
   document
     .querySelectorAll(".language-button")
     .forEach(button => {
@@ -409,63 +210,34 @@ function applyTranslations() {
     });
 
 
-  document
-    .querySelectorAll(".service-card")
-    .forEach((card, i) => {
+  // -------------------------------------------------------
+  // UPDATE MENU ARIA
+  // -------------------------------------------------------
 
-      const title =
-        card.querySelector("h3");
+  const menuToggle =
+    document.querySelector(".menu-toggle");
 
-      const text =
-        card.querySelector("p");
+  const nav =
+    document.querySelector(".nav");
 
-      if (
-        title &&
-        lang.serviceTitles?.[i]
-      ) {
-        title.textContent =
-          lang.serviceTitles[i];
-      }
+  if (menuToggle && nav) {
 
-      if (
-        text &&
-        lang.serviceTexts?.[i]
-      ) {
-        text.textContent =
-          lang.serviceTexts[i];
-      }
+    const isOpen =
+      nav.classList.contains("is-open");
 
-    });
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen
+        ? lang.menuClose
+        : lang.menuOpen
+    );
+
+  }
 
 
-  document
-    .querySelectorAll(".process-card")
-    .forEach((card, i) => {
-
-      const title =
-        card.querySelector("h3");
-
-      const text =
-        card.querySelector("p");
-
-      if (
-        title &&
-        lang.processTitles?.[i]
-      ) {
-        title.textContent =
-          lang.processTitles[i];
-      }
-
-      if (
-        text &&
-        lang.processTexts?.[i]
-      ) {
-        text.textContent =
-          lang.processTexts[i];
-      }
-
-    });
-
+  // -------------------------------------------------------
+  // NOTIFY OTHER SCRIPTS
+  // -------------------------------------------------------
 
   window.dispatchEvent(
     new Event("languagechange-agstroy")
@@ -479,14 +251,18 @@ function applyTranslations() {
 
 function applyTheme(theme) {
 
-  document.documentElement.dataset.theme =
-    theme;
+  // Устанавливаем тему
+  document.documentElement.dataset.theme = theme;
 
+
+  // Сохраняем
   localStorage.setItem(
     "agstroy-theme",
     theme
   );
 
+
+  // Обновляем aria-pressed
   const toggle =
     document.getElementById("themeToggle");
 
@@ -500,6 +276,38 @@ function applyTheme(theme) {
     );
 
   }
+
+}
+
+
+// =========================================================
+// GET INITIAL THEME
+// =========================================================
+
+function getInitialTheme() {
+
+  const savedTheme =
+    localStorage.getItem("agstroy-theme");
+
+  if (savedTheme === "dark" || savedTheme === "light") {
+    return savedTheme;
+  }
+
+
+  // Если пользователь ещё ничего не выбирал,
+  // смотрим системную тему
+
+  if (
+    window.matchMedia &&
+    window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+  ) {
+    return "dark";
+  }
+
+
+  return "light";
 }
 
 
@@ -509,31 +317,18 @@ function applyTheme(theme) {
 
 function setupCommon() {
 
-  // -------------------------------
-  // Theme
-  // -------------------------------
+  // =======================================================
+  // THEME
+  // =======================================================
 
-  const savedTheme =
-    localStorage.getItem("agstroy-theme");
-
-  const initialTheme =
-    savedTheme ||
-    (
-      window
-        .matchMedia(
-          "(prefers-color-scheme: dark)"
-        )
-        .matches
-        ? "dark"
-        : "light"
-    );
-
-  applyTheme(initialTheme);
+  applyTheme(
+    getInitialTheme()
+  );
 
 
-  // -------------------------------
-  // Languages
-  // -------------------------------
+  // =======================================================
+  // LANGUAGES
+  // =======================================================
 
   document
     .querySelectorAll(".language-button")
@@ -543,13 +338,26 @@ function setupCommon() {
         "click",
         () => {
 
+          const selectedLanguage =
+            button.dataset.lang;
+
+          if (
+            !selectedLanguage ||
+            !translations[selectedLanguage]
+          ) {
+            return;
+          }
+
+
           currentLang =
-            button.dataset.lang || "ru";
+            selectedLanguage;
+
 
           localStorage.setItem(
             "agstroy-language",
             currentLang
           );
+
 
           applyTranslations();
 
@@ -559,9 +367,9 @@ function setupCommon() {
     });
 
 
-  // -------------------------------
-  // Theme toggle
-  // -------------------------------
+  // =======================================================
+  // THEME TOGGLE
+  // =======================================================
 
   const themeToggle =
     document.getElementById("themeToggle");
@@ -572,13 +380,15 @@ function setupCommon() {
       "click",
       () => {
 
-        const next =
-          document.documentElement.dataset.theme ===
-          "dark"
+        const currentTheme =
+          document.documentElement.dataset.theme;
+
+        const nextTheme =
+          currentTheme === "dark"
             ? "light"
             : "dark";
 
-        applyTheme(next);
+        applyTheme(nextTheme);
 
       }
     );
@@ -586,15 +396,16 @@ function setupCommon() {
   }
 
 
-  // -------------------------------
-  // Mobile menu
-  // -------------------------------
+  // =======================================================
+  // MOBILE MENU
+  // =======================================================
 
   const nav =
     document.querySelector(".nav");
 
   const menuToggle =
     document.querySelector(".menu-toggle");
+
 
   if (nav && menuToggle) {
 
@@ -603,19 +414,20 @@ function setupCommon() {
       () => {
 
         const open =
-          nav.classList.toggle(
-            "is-open"
-          );
+          nav.classList.toggle("is-open");
+
 
         menuToggle.classList.toggle(
           "is-open",
           open
         );
 
+
         menuToggle.setAttribute(
           "aria-expanded",
           String(open)
         );
+
 
         menuToggle.setAttribute(
           "aria-label",
@@ -623,6 +435,7 @@ function setupCommon() {
             ? tr().menuClose
             : tr().menuOpen
         );
+
 
         document.body.classList.toggle(
           "menu-open",
@@ -632,6 +445,8 @@ function setupCommon() {
       }
     );
 
+
+    // Закрываем меню после клика по ссылке
 
     nav
       .querySelectorAll("a")
@@ -654,6 +469,11 @@ function setupCommon() {
               "false"
             );
 
+            menuToggle.setAttribute(
+              "aria-label",
+              tr().menuOpen
+            );
+
             document.body.classList.remove(
               "menu-open"
             );
@@ -666,59 +486,17 @@ function setupCommon() {
   }
 
 
+  // =======================================================
+  // APPLY TRANSLATIONS
+  // =======================================================
+
   applyTranslations();
+
 }
 
 
-/// =========================================================
+// =========================================================
 // WORKS / PORTFOLIO
-// =========================================================
-
-const categories = {
-
-  all: {
-    folder: "images/vse",
-    titleKey: "allWorks",
-    count: 276
-  },
-
-  furniture: {
-    folder: "images/mebel",
-    titleKey: "furnitureWorks",
-    count: 0
-  },
-
-  sinks: {
-    folder: "images/rakovina",
-    titleKey: "sinksWorks",
-    count: 0
-  },
-
-  plumbing: {
-    folder: "images/santeh",
-    titleKey: "plumbingWorks",
-    count: 0
-  },
-
-  other: {
-    folder: "images/ostalnoe",
-    titleKey: "otherWorks",
-    count: 200
-  }
-
-};
-
-
-// =========================================================
-// SETTINGS
-// =========================================================
-
-// Сколько фотографий показываем на одной странице
-const perPage = 9;
-
-
-// =========================================================
-// ELEMENTS
 // =========================================================
 
 const worksGrid =
@@ -728,9 +506,7 @@ const pagination =
   document.querySelector("#pagination");
 
 
-// =========================================================
-// STATE
-// =========================================================
+const perPage = 9;
 
 let currentPage = 1;
 
@@ -738,82 +514,472 @@ let currentCategory = "all";
 
 
 // =========================================================
-// GET CURRENT CATEGORY
-// =========================================================
-
-function getCurrentCategory() {
-
-  return categories[currentCategory] || categories.all;
-
-}
-
-
-// =========================================================
-// GET CURRENT PAGE PHOTOS
+// COUNT
 // =========================================================
 //
-// Здесь НЕ загружаются фотографии всей категории.
+// Здесь указываешь количество фотографий
+// в каждой папке.
 //
-// Формируются только 9 путей для текущей страницы.
+// Например:
 //
-// Например, страница 1:
+// images/furniture/photo1.webp
+// images/furniture/photo2.webp
+// images/furniture/photo3.webp
 //
-// photo1.png
-// photo2.png
-// ...
-// photo9.png
+// значит:
 //
-// Страница 2:
+// furniture: 3
 //
-// photo10.png
-// ...
-// photo18.png
+// =========================================================
 
-function getPageWorks() {
+const worksCount = {
 
-  const category =
-    getCurrentCategory();
+  furniture: 24,
 
-  const start =
-    (currentPage - 1) * perPage;
+  sinks: 19,
 
-  const end =
-    Math.min(
-      start + perPage,
-      category.count
-    );
+  plumbing: 33,
 
-  const works = [];
+  other: 200,
 
+  // ВАЖНО:
+  // all здесь НЕ используется для общего количества.
+  //
+  // "Все" автоматически собирается из:
+  //
+  // furniture + sinks + plumbing + other
+};
+
+
+// =========================================================
+// IMAGE EXTENSION
+// =========================================================
+
+const imageExtension = ".webp";
+
+
+// =========================================================
+// GENERATE WORKS
+// =========================================================
+
+function generateWorks() {
+
+  const furniture = [];
+
+  const sinks = [];
+
+  const plumbing = [];
+
+  const other = [];
+
+
+  // -------------------------------------------------------
+  // FURNITURE
+  // -------------------------------------------------------
 
   for (
-    let i = start + 1;
-    i <= end;
+    let i = 1;
+    i <= worksCount.furniture;
     i++
   ) {
 
-    works.push({
-
-      image:
-        `${category.folder}/photo${i}.png`,
-
-      category:
-        currentCategory,
-
-      number:
-        i
-
-    });
+    furniture.push(
+      `images/furniture/photo${i}${imageExtension}`
+    );
 
   }
 
 
-  return works;
+  // -------------------------------------------------------
+  // SINKS
+  // -------------------------------------------------------
+
+  for (
+    let i = 1;
+    i <= worksCount.sinks;
+    i++
+  ) {
+
+    sinks.push(
+      `images/sinks/photo${i}${imageExtension}`
+    );
+
+  }
+
+
+  // -------------------------------------------------------
+  // PLUMBING
+  // -------------------------------------------------------
+
+  for (
+    let i = 1;
+    i <= worksCount.plumbing;
+    i++
+  ) {
+
+    plumbing.push(
+      `images/plumbing/photo${i}${imageExtension}`
+    );
+
+  }
+
+
+  // -------------------------------------------------------
+  // OTHER
+  // -------------------------------------------------------
+
+  for (
+    let i = 1;
+    i <= worksCount.other;
+    i++
+  ) {
+
+    other.push(
+      `images/other/photo${i}${imageExtension}`
+    );
+
+  }
+
+
+  // -------------------------------------------------------
+  // ALL
+  // -------------------------------------------------------
+
+  const all = [
+
+    ...furniture,
+
+    ...sinks,
+
+    ...plumbing,
+
+    ...other
+
+  ];
+
+
+  return {
+
+    all,
+
+    furniture,
+
+    sinks,
+
+    plumbing,
+
+    other
+
+  };
+
+}
+
+
+let worksByCategory =
+  generateWorks();
+
+
+// =========================================================
+// CURRENT WORKS
+// =========================================================
+
+function getCurrentWorks() {
+
+  return (
+    worksByCategory[currentCategory] || []
+  );
+
 }
 
 
 // =========================================================
-// CREATE FILTERS
+// CURRENT PAGE
+// =========================================================
+
+function getPageWorks() {
+
+  const works =
+    getCurrentWorks();
+
+
+  const start =
+    (currentPage - 1) * perPage;
+
+
+  return works.slice(
+    start,
+    start + perPage
+  );
+
+}
+
+
+// =========================================================
+// RENDER
+// =========================================================
+
+function renderWorks() {
+
+  if (!worksGrid || !pagination) {
+    return;
+  }
+
+
+  const works =
+    getCurrentWorks();
+
+
+  const totalPages =
+    Math.max(
+      1,
+      Math.ceil(
+        works.length / perPage
+      )
+    );
+
+
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+
+
+  const pageWorks =
+    getPageWorks();
+
+
+  // =======================================================
+  // RENDER IMAGES
+  // =======================================================
+
+  worksGrid.innerHTML =
+
+    pageWorks
+      .map((path, index) => {
+
+        const number =
+          (currentPage - 1) * perPage +
+          index +
+          1;
+
+
+        return `
+
+          <article class="work-card">
+
+            <button
+              class="work-card__image"
+              type="button"
+              data-image="${path}"
+              aria-label="${tr().openPhoto} ${number}"
+            >
+
+              <img
+                src="${path}"
+                alt="AGStroy — ${tr().openPhoto} ${number}"
+                loading="${
+                  index < 3
+                    ? "eager"
+                    : "lazy"
+                }"
+                decoding="async"
+              >
+
+              <span
+                class="work-card__zoom"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+
+            </button>
+
+          </article>
+
+        `;
+
+      })
+      .join("");
+
+
+  // =======================================================
+  // PAGINATION
+  // =======================================================
+
+  const pages = [1];
+
+
+  if (currentPage > 4) {
+    pages.push("...");
+  }
+
+
+  for (
+
+    let i =
+      Math.max(
+        2,
+        currentPage - 2
+      );
+
+    i <=
+      Math.min(
+        totalPages - 1,
+        currentPage + 2
+      );
+
+    i++
+
+  ) {
+
+    pages.push(i);
+
+  }
+
+
+  if (
+    currentPage <
+    totalPages - 3
+  ) {
+
+    pages.push("...");
+
+  }
+
+
+  if (
+    totalPages > 1 &&
+    !pages.includes(totalPages)
+  ) {
+
+    pages.push(totalPages);
+
+  }
+
+
+  pagination.innerHTML = `
+
+    <button
+      class="pagination__button"
+      data-page="${currentPage - 1}"
+      aria-label="${tr().prevPage}"
+      ${
+        currentPage === 1
+          ? "disabled"
+          : ""
+      }
+    >
+      ←
+    </button>
+
+
+    ${pages
+      .map(page => {
+
+        if (page === "...") {
+
+          return `
+
+            <span class="pagination__dots">
+              ...
+            </span>
+
+          `;
+
+        }
+
+
+        return `
+
+          <button
+            class="pagination__button ${
+              page === currentPage
+                ? "is-active"
+                : ""
+            }"
+            data-page="${page}"
+          >
+            ${page}
+          </button>
+
+        `;
+
+      })
+      .join("")}
+
+
+    <button
+      class="pagination__button"
+      data-page="${currentPage + 1}"
+      aria-label="${tr().nextPage}"
+      ${
+        currentPage === totalPages
+          ? "disabled"
+          : ""
+      }
+    >
+      →
+    </button>
+
+  `;
+
+
+  // =======================================================
+  // PAGINATION EVENTS
+  // =======================================================
+
+  pagination
+    .querySelectorAll(
+      "button:not(:disabled)"
+    )
+    .forEach(button => {
+
+      button.onclick = () => {
+
+        currentPage =
+          Number(
+            button.dataset.page
+          );
+
+
+        renderWorks();
+
+
+        document
+          .querySelector("#works")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      };
+
+    });
+
+
+  // =======================================================
+  // DEBUG
+  // =======================================================
+
+  console.log(
+    "Категория:",
+    currentCategory
+  );
+
+  console.log(
+    "Количество фото:",
+    works.length
+  );
+
+  console.log(
+    "Фото на странице:",
+    perPage
+  );
+
+}
+
+
+// =========================================================
+// FILTERS
 // =========================================================
 
 function createFilters() {
@@ -842,6 +1008,7 @@ function createFilters() {
 
   const filters =
     document.createElement("div");
+
 
   filters.className =
     "works-filter";
@@ -923,7 +1090,9 @@ function createFilters() {
 
 
   filters
-    .querySelectorAll(".filter-button")
+    .querySelectorAll(
+      ".filter-button"
+    )
     .forEach(button => {
 
       button.addEventListener(
@@ -933,7 +1102,9 @@ function createFilters() {
           currentCategory =
             button.dataset.category;
 
+
           currentPage = 1;
+
 
           createFilters();
 
@@ -951,384 +1122,6 @@ function createFilters() {
       );
 
     });
-
-}
-
-
-// =========================================================
-// RENDER WORKS
-// =========================================================
-
-function renderWorks() {
-
-  if (!worksGrid || !pagination) {
-    return;
-  }
-
-
-  const category =
-    getCurrentCategory();
-
-
-  const totalPages =
-    Math.max(
-      1,
-      Math.ceil(
-        category.count / perPage
-      )
-    );
-
-
-  // Защита от выхода за пределы
-  if (currentPage > totalPages) {
-    currentPage = totalPages;
-  }
-
-
-  const pageWorks =
-    getPageWorks();
-
-
-  // =======================================================
-  // RENDER ONLY CURRENT PAGE
-  // =======================================================
-
-  worksGrid.innerHTML =
-    pageWorks
-      .map(work => {
-
-        return `
-
-          <article class="work-card">
-
-            <button
-              class="work-card__image"
-              type="button"
-              data-image="${work.image}"
-              aria-label="${
-                tr().openPhoto
-              } ${work.number}"
-            >
-
-              <img
-                src="${work.image}"
-                alt="AGStroy — ${
-                  tr().openPhoto
-                } ${work.number}"
-                loading="lazy"
-                decoding="async"
-              >
-
-              <span
-                class="work-card__zoom"
-                aria-hidden="true"
-              >
-                ↗
-              </span>
-
-            </button>
-
-          </article>
-
-        `;
-
-      })
-      .join("");
-
-
-  // =======================================================
-  // PAGINATION
-  // =======================================================
-
-  const pages = [1];
-
-
-  if (currentPage > 4) {
-    pages.push("...");
-  }
-
-
-  for (
-    let i =
-      Math.max(
-        2,
-        currentPage - 2
-      );
-
-    i <=
-      Math.min(
-        totalPages - 1,
-        currentPage + 2
-      );
-
-    i++
-  ) {
-
-    pages.push(i);
-
-  }
-
-
-  if (
-    currentPage <
-    totalPages - 3
-  ) {
-
-    pages.push("...");
-
-  }
-
-
-  if (
-    totalPages > 1 &&
-    !pages.includes(totalPages)
-  ) {
-
-    pages.push(totalPages);
-
-  }
-
-
-  pagination.innerHTML = `
-
-    <button
-      class="pagination__button"
-      data-page="${currentPage - 1}"
-      aria-label="${tr().prevPage}"
-      ${
-        currentPage === 1
-          ? "disabled"
-          : ""
-      }
-    >
-      ←
-    </button>
-
-
-    ${pages
-      .map(page => {
-
-        if (page === "...") {
-
-          return `
-            <span class="pagination__dots">
-              ...
-            </span>
-          `;
-
-        }
-
-
-        return `
-
-          <button
-            class="pagination__button ${
-              page === currentPage
-                ? "is-active"
-                : ""
-            }"
-            data-page="${page}"
-          >
-            ${page}
-          </button>
-
-        `;
-
-      })
-      .join("")}
-
-
-    <button
-      class="pagination__button"
-      data-page="${currentPage + 1}"
-      aria-label="${tr().nextPage}"
-      ${
-        currentPage === totalPages
-          ? "disabled"
-          : ""
-      }
-    >
-      →
-    </button>
-
-  `;
-
-
-  // =======================================================
-  // PAGINATION EVENTS
-  // =======================================================
-
-  pagination
-    .querySelectorAll(
-      "button:not(:disabled)"
-    )
-    .forEach(button => {
-
-      button.onclick = () => {
-
-        currentPage =
-          Number(
-            button.dataset.page
-          );
-
-
-        renderWorks();
-
-
-        document
-          .querySelector("#works")
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-      };
-
-    });
-
-}
-
-
-// =========================================================
-// LIGHTBOX
-// =========================================================
-
-function setupLightbox() {
-
-  if (!worksGrid) {
-    return;
-  }
-
-
-  const lightbox =
-    document.createElement("div");
-
-  lightbox.className =
-    "image-lightbox";
-
-
-  lightbox.innerHTML = `
-
-    <button
-      class="image-lightbox__close"
-      type="button"
-      aria-label="${tr().close}"
-    >
-      ×
-    </button>
-
-
-    <img
-      class="image-lightbox__image"
-      src=""
-      alt=""
-    >
-
-  `;
-
-
-  document.body.appendChild(
-    lightbox
-  );
-
-
-  const image =
-    lightbox.querySelector(
-      ".image-lightbox__image"
-    );
-
-
-  const closeButton =
-    lightbox.querySelector(
-      ".image-lightbox__close"
-    );
-
-
-  const close = () => {
-
-    lightbox.classList.remove(
-      "is-open"
-    );
-
-    document.body.classList.remove(
-      "lightbox-open"
-    );
-
-    image.src = "";
-
-  };
-
-
-  // =======================================================
-  // OPEN IMAGE
-  // =======================================================
-
-  worksGrid.addEventListener(
-    "click",
-    event => {
-
-      const button =
-        event.target.closest(
-          ".work-card__image"
-        );
-
-
-      if (!button) {
-        return;
-      }
-
-
-      image.src =
-        button.dataset.image;
-
-
-      image.alt =
-        button.querySelector(
-          "img"
-        )?.alt || "";
-
-
-      lightbox.classList.add(
-        "is-open"
-      );
-
-
-      document.body.classList.add(
-        "lightbox-open"
-      );
-
-    }
-  );
-
-
-  closeButton.onclick =
-    close;
-
-
-  lightbox.onclick =
-    event => {
-
-      if (
-        event.target === lightbox
-      ) {
-
-        close();
-
-      }
-
-    };
-
-
-  document.addEventListener(
-    "keydown",
-    event => {
-
-      if (event.key === "Escape") {
-        close();
-      }
-
-    }
-  );
 
 }
 
@@ -1357,6 +1150,11 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
+    // Общие функции сайта
+    setupCommon();
+
+
+    // Если это не страница works
     if (!worksGrid) {
       return;
     }
@@ -1364,19 +1162,7 @@ document.addEventListener(
 
     createFilters();
 
-    setupLightbox();
-
     renderWorks();
 
   }
-);
-
-
-// =========================================================
-// START COMMON SITE
-// =========================================================
-
-document.addEventListener(
-  "DOMContentLoaded",
-  setupCommon
 );
