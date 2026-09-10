@@ -520,9 +520,9 @@ const worksCount = {
 
   furniture: 24,
 
-  sinks: 19,
+  sinks: 33,
 
-  plumbing: 33,
+  plumbing: 19,
 
   other: 200
 
@@ -642,6 +642,194 @@ function getPageWorks() {
 // RENDER WORKS
 // =========================================================
 
+// =========================================================
+// PROGRESSIVE IMAGE LOADING
+// =========================================================
+// Изображения не загружаются все сразу.
+// Сначала создаются пустые карточки,
+// затем фото подгружаются постепенно при приближении к экрану.
+
+let worksImageObserver = null;
+
+function getWorksImageObserver() {
+  if (!("IntersectionObserver" in window)) {
+    return null;
+  }
+
+  if (worksImageObserver) {
+    return worksImageObserver;
+  }
+
+  worksImageObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const img = entry.target;
+        const src = img.dataset.src;
+
+        if (!src) {
+          worksImageObserver.unobserve(img);
+          return;
+        }
+
+        // Начинаем загрузку
+        img.src = src;
+        img.removeAttribute("data-src");
+
+        worksImageObserver.unobserve(img);
+      });
+    },
+    {
+      // Начинаем загрузку немного заранее,
+      // чтобы пользователь почти никогда не видел ожидание.
+      rootMargin: "500px 0px",
+      threshold: 0.01
+    }
+  );
+
+  return worksImageObserver;
+}
+
+
+// =========================================================
+// LOAD SINGLE IMAGE
+// =========================================================
+
+function loadWorkImage(img, priority = "low") {
+  if (!img) {
+    return;
+  }
+
+  const src = img.dataset.src;
+
+  if (!src) {
+    return;
+  }
+
+  img.src = src;
+  img.removeAttribute("data-src");
+  img.fetchPriority = priority;
+
+  if (worksImageObserver) {
+    worksImageObserver.unobserve(img);
+  }
+}
+
+
+// =========================================================
+// START PROGRESSIVE LOADING
+// =========================================================
+
+function setupProgressiveImages() {
+  if (!worksGrid) {
+    return;
+  }
+
+  const images = worksGrid.querySelectorAll("img[data-src]");
+
+  if (!images.length) {
+    return;
+  }
+
+  const observer = getWorksImageObserver();
+
+  images.forEach((img, index) => {
+
+    // Только первые 2 изображения грузим сразу.
+    // Остальные — по мере приближения к экрану.
+
+    if (index === 0) {
+      loadWorkImage(img, "high");
+      return;
+    }
+
+    if (index === 1) {
+      loadWorkImage(img, "auto");
+      return;
+    }
+
+    // Если браузер поддерживает IntersectionObserver,
+    // наблюдаем за изображением.
+    if (observer) {
+      observer.observe(img);
+    } else {
+      // Резервный вариант для старых браузеров.
+      loadWorkImage(img, "low");
+    }
+  });
+}
+
+
+// =========================================================
+// IMAGE APPEAR ANIMATION
+// =========================================================
+
+(function installImageLoadingStyles() {
+
+  if (
+    document.getElementById(
+      "agstroy-image-loading-styles"
+    )
+  ) {
+    return;
+  }
+
+  const style = document.createElement("style");
+
+  style.id =
+    "agstroy-image-loading-styles";
+
+  style.textContent = `
+
+    .work-card__image img {
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    .work-card__image img.is-loaded {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .work-card__image img {
+        transition: none;
+      }
+    }
+
+  `;
+
+  document.head.appendChild(style);
+
+
+  // Отслеживаем момент завершения загрузки картинки.
+
+  document.addEventListener(
+    "load",
+    event => {
+
+      const img = event.target;
+
+      if (
+        img instanceof HTMLImageElement &&
+        img.closest(".work-card__image")
+      ) {
+        img.classList.add("is-loaded");
+      }
+
+    },
+    true
+  );
+
+})();
+
+
+// =========================================================
+// RENDER WORKS
+// =========================================================
+
 function renderWorks() {
 
   if (!worksGrid || !pagination) {
@@ -671,12 +859,20 @@ function renderWorks() {
     getPageWorks();
 
 
-  // =======================================================
-  // IMAGES
-  // =======================================================
+  // ---------------------------------------------------------
+  // CLEAN OLD IMAGES
+  // ---------------------------------------------------------
+
+  if (worksImageObserver) {
+    worksImageObserver.disconnect();
+  }
 
   worksGrid.innerHTML = "";
 
+
+  // ---------------------------------------------------------
+  // CREATE FRAGMENT
+  // ---------------------------------------------------------
 
   const fragment =
     document.createDocumentFragment();
@@ -686,10 +882,15 @@ function renderWorks() {
     (path, index) => {
 
       const number =
-        (currentPage - 1) * perPage +
+        (currentPage - 1) *
+          perPage +
         index +
         1;
 
+
+      // -----------------------------------------------------
+      // ARTICLE
+      // -----------------------------------------------------
 
       const article =
         document.createElement("article");
@@ -698,13 +899,18 @@ function renderWorks() {
         "work-card";
 
 
+      // -----------------------------------------------------
+      // BUTTON
+      // -----------------------------------------------------
+
       const button =
         document.createElement("button");
 
       button.className =
         "work-card__image";
 
-      button.type = "button";
+      button.type =
+        "button";
 
       button.dataset.image =
         path;
@@ -715,40 +921,64 @@ function renderWorks() {
       );
 
 
+      // -----------------------------------------------------
+      // IMAGE
+      // -----------------------------------------------------
+
       const img =
         document.createElement("img");
 
-      img.src = path;
+
+      // ВАЖНО:
+      // Не используем img.src = path здесь.
+      //
+      // URL сохраняем в data-src.
+      // Поэтому браузер не начинает скачивать
+      // все изображения сразу.
+
+      img.dataset.src =
+        path;
+
 
       img.alt =
         `AGStroy — ${tr().openPhoto} ${number}`;
 
 
-      // ---------------------------------------------------
-      // Loading optimization
-      // ---------------------------------------------------
+      img.loading =
+        "lazy";
+
+
+      img.decoding =
+        "async";
+
+
+      // Приоритет:
+      // первые изображения важнее остальных.
 
       if (index === 0) {
-
-        img.loading = "eager";
-
-        img.fetchPriority = "high";
-
+        img.fetchPriority =
+          "high";
+      } else if (index === 1) {
+        img.fetchPriority =
+          "auto";
       } else {
-
-        img.loading = "lazy";
-
-        img.fetchPriority = "low";
-
+        img.fetchPriority =
+          "low";
       }
 
 
-      img.decoding = "async";
+      // -----------------------------------------------------
+      // PLACEHOLDER
+      // -----------------------------------------------------
+
+      img.classList.add(
+        "work-image-placeholder"
+      );
 
 
-      // ---------------------------------------------------
-      // Zoom icon
-      // ---------------------------------------------------
+      // -----------------------------------------------------
+      // ZOOM ICON
+      // -----------------------------------------------------
 
       const zoom =
         document.createElement("span");
@@ -761,11 +991,15 @@ function renderWorks() {
         "true"
       );
 
-      zoom.textContent = "↗";
+      zoom.textContent =
+        "↗";
 
+
+      // -----------------------------------------------------
+      // BUILD CARD
+      // -----------------------------------------------------
 
       button.appendChild(img);
-
       button.appendChild(zoom);
 
       article.appendChild(button);
@@ -779,11 +1013,20 @@ function renderWorks() {
   worksGrid.appendChild(fragment);
 
 
-  // =======================================================
-  // PAGINATION
-  // =======================================================
+  // ---------------------------------------------------------
+  // START IMAGE LOADING
+  // ---------------------------------------------------------
 
-  renderPagination(totalPages);
+  setupProgressiveImages();
+
+
+  // ---------------------------------------------------------
+  // PAGINATION
+  // ---------------------------------------------------------
+
+  renderPagination(
+    totalPages
+  );
 
 }
 
@@ -1091,6 +1334,326 @@ function createFilters() {
 
 
 // =========================================================
+// LIGHTBOX
+// =========================================================
+
+function setupLightbox() {
+
+  // Создаём lightbox один раз
+
+  let lightbox =
+    document.querySelector(".lightbox");
+
+
+  if (!lightbox) {
+
+    lightbox =
+      document.createElement("div");
+
+    lightbox.className =
+      "lightbox";
+
+    lightbox.innerHTML = `
+
+      <div
+        class="lightbox__backdrop"
+        data-lightbox-close
+      ></div>
+
+      <div class="lightbox__content">
+
+        <button
+          class="lightbox__close"
+          type="button"
+          aria-label="${tr().close}"
+          data-lightbox-close
+        >
+          ×
+        </button>
+
+        <img
+          class="lightbox__image"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+    `;
+
+    document.body.appendChild(lightbox);
+
+  }
+
+
+  const image =
+    lightbox.querySelector(
+      ".lightbox__image"
+    );
+
+
+  // -------------------------------------------------------
+  // Открытие фотографии
+  // -------------------------------------------------------
+
+  worksGrid.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          ".work-card__image"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      const path =
+        button.dataset.image;
+
+
+      if (!path) {
+        return;
+      }
+
+
+      image.src = path;
+
+      image.alt =
+        button
+          .querySelector("img")
+          ?.alt || "";
+
+
+      lightbox.classList.add(
+        "is-open"
+      );
+
+
+      document.body.classList.add(
+        "lightbox-open"
+      );
+
+
+      // Запрещаем прокрутку страницы
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+  );
+
+
+  // -------------------------------------------------------
+  // Закрытие
+  // -------------------------------------------------------
+
+  lightbox.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target.closest(
+          "[data-lightbox-close]"
+        )
+      ) {
+
+        closeLightbox();
+
+      }
+
+    }
+  );
+
+
+  // -------------------------------------------------------
+  // ESC
+  // -------------------------------------------------------
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Escape" &&
+        lightbox.classList.contains(
+          "is-open"
+        )
+      ) {
+
+        closeLightbox();
+
+      }
+
+    }
+  );
+
+
+  // -------------------------------------------------------
+  // Close function
+  // -------------------------------------------------------
+
+  function closeLightbox() {
+
+    lightbox.classList.remove(
+      "is-open"
+    );
+
+
+    document.body.classList.remove(
+      "lightbox-open"
+    );
+
+
+    document.body.style.overflow =
+      "";
+
+    image.src = "";
+
+  }
+
+}
+
+// =========================================================
+// LIGHTBOX
+// =========================================================
+
+function setupLightbox() {
+
+  if (!worksGrid) {
+    return;
+  }
+
+
+  const lightbox =
+    document.createElement("div");
+
+  lightbox.className =
+    "image-lightbox";
+
+
+  lightbox.innerHTML = `
+
+    <button
+      class="image-lightbox__close"
+      type="button"
+      aria-label="${tr().close}"
+    >
+      ×
+    </button>
+
+    <img
+      class="image-lightbox__image"
+      src=""
+      alt=""
+    >
+
+  `;
+
+
+  document.body.appendChild(
+    lightbox
+  );
+
+
+  const image =
+    lightbox.querySelector(
+      ".image-lightbox__image"
+    );
+
+
+  const closeButton =
+    lightbox.querySelector(
+      ".image-lightbox__close"
+    );
+
+
+  const close = () => {
+
+    lightbox.classList.remove(
+      "is-open"
+    );
+
+    document.body.classList.remove(
+      "lightbox-open"
+    );
+
+    image.src = "";
+
+  };
+
+
+  worksGrid.addEventListener(
+    "click",
+    event => {
+
+      const button =
+        event.target.closest(
+          ".work-card__image"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      image.src =
+        button.dataset.image;
+
+
+      image.alt =
+        button.querySelector(
+          "img"
+        )?.alt || "";
+
+
+      lightbox.classList.add(
+        "is-open"
+      );
+
+
+      document.body.classList.add(
+        "lightbox-open"
+      );
+
+    }
+  );
+
+
+  closeButton.onclick = close;
+
+
+  lightbox.onclick = event => {
+
+    if (
+      event.target === lightbox
+    ) {
+
+      close();
+
+    }
+
+  };
+
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (event.key === "Escape") {
+        close();
+      }
+
+    }
+  );
+
+}
+
+// =========================================================
 // LANGUAGE CHANGE
 // =========================================================
 
@@ -1120,6 +1683,9 @@ document.addEventListener(
     if (!worksGrid) {
       return;
     }
+
+      // ВАЖНО: подключаем lightbox
+  setupLightbox();
 
 
     createFilters();
